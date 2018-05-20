@@ -4,8 +4,12 @@ import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 
 const routes: Routes = [
-    { path: '', loadChildren: './layout/layout.module#LayoutModule', canActivate: [AuthGuard] },
-    { path: '', loadChildren: './layout2/layout.module#LayoutModule', canActivate: [AuthGuard] },
+    //{ path: '', loadChildren: './layout/layout.module#LayoutModule', canActivate: [AuthGuard] },
+    { path: '', loadChildren: './UserPage/layout.module#LayoutModule', canActivate: [AuthGuard] },
+    { path: '', loadChildren: './OrgPage/layout.module#LayoutModule', canActivate: [AuthGuard] },
+    { path: '', loadChildren: './EntPage/layout.module#LayoutModule', canActivate: [AuthGuard] },
+    { path: '', loadChildren: './SchoolPage/layout.module#LayoutModule', canActivate: [AuthGuard] },
+
     // { path: '', loadChildren: './layout3/layout.module#LayoutModule', canActivate: [AuthGuard] },
     // { path: '', loadChildren: './layout4/layout.module#LayoutModule', canActivate: [AuthGuard] },
 

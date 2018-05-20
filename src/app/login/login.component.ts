@@ -21,9 +21,12 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('istestin', 'true');
     }
     onLoggedin3() {
-        localStorage.setItem('isuser', 'true');
+        localStorage.setItem('isOrgin', 'true');
     }
     onLoggedin4() {
-        localStorage.setItem('isca', 'true');
+        localStorage.setItem('isEntin', 'true');
+    }
+    onLoggedin5() {
+        localStorage.setItem('isSchin', 'true');
     }
 }

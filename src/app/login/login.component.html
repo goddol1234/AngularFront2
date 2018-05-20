@@ -13,14 +13,20 @@
                         <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
                     </div>
                 </div>
-                <a class="btn rounded-btn" [routerLink]="['/dashboard2']" (click)="onLoggedin2()"> 기업 </a>
+                <a class="btn rounded-btn" [routerLink]="['/dashboard2']" (click)="onLoggedin2()"> 유저 </a>
+                &nbsp;
+                <a class="btn rounded-btn" [routerLink]="['/dashboard3']" (click)="onLoggedin3()"> 기관 </a>
+                &nbsp;
+                <a class="btn rounded-btn" [routerLink]="['/dashboard4']" (click)="onLoggedin4()"> 학교 </a>
+                &nbsp;
+                <a class="btn rounded-btn" [routerLink]="['/dashboard5']" (click)="onLoggedin5()"> 기업 </a>
                 &nbsp;
                 <!-- <a class="btn rounded-btn" [routerLink]="['/dashboard3']" (click)="onLoggedin3()"> 유저 </a>
                 &nbsp;
                 <a class="btn rounded-btn" [routerLink]="['/dashboard4']" (click)="onLoggedin4()"> 인증기관 </a>
                 &nbsp; -->
-                <a class="btn rounded-btn" [routerLink]="['/dashboard']" (click)="onLoggedin()"> Log in </a>
-                &nbsp;
+                 <!-- <a class="btn rounded-btn" [routerLink]="['/dashboard']" (click)="onLoggedin()"> Log in </a>
+                &nbsp;  -->
                 <a class="btn rounded-btn" [routerLink]="['/signup']">Register</a>
             </form>
         </div>

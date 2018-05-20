@@ -13,12 +13,16 @@ export class AuthGuard implements CanActivate {
         else if (localStorage.getItem('istestin')) {
             return true;
         }
-        // else if (localStorage.getItem('isuser')) {
-        //     return true;
-        // }
-        // else if (localStorage.getItem('isca')) {
-        //     return true;
-        // }
+        else if (localStorage.getItem('isOrgin')) {
+            return true;
+        }
+        else if (localStorage.getItem('isEntin')) {
+            return true;
+        }
+        else if (localStorage.getItem('isSchin')) {
+            return true;
+        }
+        
         this.router.navigate(['/login']);
         return false;
     }
