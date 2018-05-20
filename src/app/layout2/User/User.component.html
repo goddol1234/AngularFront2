@@ -1,0 +1,169 @@
+
+  <div [@routerTransition]>
+
+      <h3>유저 리스트</h3>
+  <div class="row">
+        <div class="col-sm-12">
+            <div class="card mb-3">
+              
+                <!-- <div class="card-body">
+                    <button class="btn btn-primary" (click)="open(content)">유저 추가</button>
+                    <ng-template #content let-c="close" let-d="dismiss">
+                        <div class="modal-header">
+                            <h4 class="modal-title">유저 추가</h4>
+                            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form [formGroup]="myForm">
+                          <div class="modal-body">
+                  
+                  
+                            
+                  
+                              
+                                <div class="form-group text-left">
+                                  <label for="userId">userId</label>
+                                  
+                                    <input formControlName="userId" type="text" class="form-control">
+                                  
+                                </div>
+                              
+                            
+                  
+                              
+                                <div class="form-group text-left">
+                                  <label for="userName">userName</label>
+                                  
+                                    <input formControlName="userName" type="text" class="form-control">
+                                  
+                                </div>
+                              
+                            
+                  
+                              
+                                <div class="form-group text-left">
+                                  <label for="dob">dob</label>
+                                  
+                                    <input formControlName="dob" type="text" class="form-control">
+                                  
+                                </div>
+                              
+                            
+                  
+                              
+                                <div class="form-group text-left">
+                                  <label for="address">address</label>
+                                  
+                                      <textarea formControlName="address" class="form-control" rows="3"></textarea>
+                                  
+                                </div>
+                              
+                            
+                  
+                              
+                                <div class="form-group text-left">
+                                  <label for="phoneNumber">phoneNumber</label>
+                                  
+                                    <input formControlName="phoneNumber" type="text" class="form-control">
+                                  
+                                </div>
+                              
+                            
+                  
+                              
+                                <div class="form-group text-left">
+                                  <label for="email">email</label>
+                                  
+                                    <input formControlName="email" type="text" class="form-control">
+                                  
+                                </div>
+                              
+                            
+                  
+                              
+                                <div class="form-group text-left">
+                                  <label for="isPublic">isPublic</label>
+                                  
+                                    <input formControlName="isPublic" type="checkbox" class="form-control">
+                                  
+                                </div>
+                              
+                            
+                  
+                              
+                                <div class="form-group text-left">
+                                  <label for="isHuntingForJob">isHuntingForJob</label>
+                                  
+                                    <input formControlName="isHuntingForJob" type="checkbox" class="form-control">
+                                  
+                                </div>
+                              
+                            
+                  
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button (click)="addParticipant(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Confirm</button>
+                  
+                          </div>
+                        </form>
+                        
+                    </ng-template>
+         
+    </div>  -->
+    
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-responsive">
+          <thead class="thead">
+            <tr class="thead-cols">
+              
+                  <th class="info">userId</th>
+              
+                  <th class="info">userName</th>
+              
+                  <th class="info">dob</th>
+              
+                  <th class="info">address</th>
+              
+                  <th class="info">phoneNumber</th>
+              
+                  <th class="info">email</th>
+              
+                  <th class="info">isPublic</th>
+              
+                  <th class="info">isHuntingForJob</th>
+              
+                <th class="info-actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let participant of allParticipants">
+  
+              
+                  <td class="participant-properties">{{participant.userId}}</td>
+              
+                  <td class="participant-properties">{{participant.userName}}</td>
+              
+                  <td class="participant-properties">{{participant.dob}}</td>
+              
+                  <td class="participant-properties">{{participant.address}}</td>
+              
+                  <td class="participant-properties">{{participant.phoneNumber}}</td>
+              
+                  <td class="participant-properties">{{participant.email}}</td>
+              
+                  <td class="participant-properties">{{participant.isPublic}}</td>
+              
+                  <td class="participant-properties">{{participant.isHuntingForJob}}</td>
+             
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>

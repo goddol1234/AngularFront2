@@ -1,0 +1,218 @@
+<div [@routerTransition]>
+
+
+      <div class="row">
+          <div class="col-sm-12">
+              <div class="card mb-3">
+                  <!-- Large modal -->
+                  <div class="card-body">
+                      <button class="btn btn-primary" (click)="open(content)">이력서 추가</button>
+                      <ng-template #content let-c="close" let-d="dismiss">
+                          <div class="modal-header">
+                              <h4 class="modal-title">이력서 추가</h4>
+                              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                                  <span aria-hidden="true">&times;</span>
+                              </button>
+                          </div>
+                          <form [formGroup]="myForm2">
+                            <div class="modal-body">
+                    
+                    
+                    
+                    
+                              <!--
+                                  <div class="form-group text-left">
+                                    <label for="assetId">assetId</label>
+                                    
+                                      <input formControlName="assetId" type="hidden" class="form-control" value="test">
+                                    
+                                  </div>
+                                
+                              
+                    
+                                
+                                  <div class="form-group text-left">
+                                    <label for="ownerId">ownerId</label>
+                                    
+                                      <input formControlName="ownerId" type="hidden" class="form-control" value="test">
+                                    
+                                  </div>
+                                
+                                -->
+                    
+                    
+                              <div class="form-group text-left">
+                                <label for="certificateName">certificateName</label>
+                    
+                                <input formControlName="certificateName" type="text" class="form-control">
+                    
+                              </div>
+                    
+                    
+                    
+                    
+                              <div class="form-group text-left">
+                                <label for="certificateScore">certificateScore</label>
+                    
+                                <input formControlName="certificateScore" type="number" class="form-control">
+                    
+                              </div>
+                    
+                    
+                    
+                    
+                              <div class="form-group text-left">
+                                <label for="authorizedParticipantId">authorizedParticipantId</label>
+                    
+                                <input formControlName="authorizedParticipantId" type="text" class="form-control">
+                    
+                              </div>
+                    
+                    
+                    
+                    
+                              <div class="form-group text-left">
+                                <label for="organizationName">organizationName</label>
+                    
+                                <input formControlName="organizationName" type="text" class="form-control">
+                    
+                              </div>
+                    
+                    
+                    
+                    
+                              <div class="form-group text-left">
+                                <label for="dob">dob</label>
+                    
+                                <input formControlName="dob" type="text" class="form-control">
+                    
+                              </div>
+                    
+                    
+                    
+                    
+                              <div class="form-group text-left">
+                                <label for="expirationDate">expirationDate</label>
+                    
+                                <input formControlName="expirationDate" type="text" class="form-control">
+                    
+                              </div>
+                    
+                    
+                                <!--
+                                  
+                              <div class="form-group text-left">
+                                <label for="userId">userId</label>
+                    
+                                <input formControlName="userId" type="text" class="form-control">
+                    
+                              </div>
+                    
+                    
+                            
+                                  <div class="form-group text-left">
+                                    <label for="transactionTime">transactionTime</label>
+                                    
+                                      <input formControlName="transactionTime" type="text" class="form-control">
+                                    
+                                  </div>
+                                -->
+                    
+                    
+                    
+                              <div class="form-group text-left">
+                                <label for="isPublic">isPublic</label>
+                    
+                                <input formControlName="isPublic" type="checkbox" class="form-control">
+                    
+                              </div>
+                    
+                    
+                    
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal" (click)="c('Close click')">Cancel</button>
+                              <button (click)="addTransaction(myForm2);" type="submit" class="btn btn-success" data-dismiss="modal" (click)="c('Close click')" >Confirm</button>
+                    
+                            </div>
+                          </form>
+                          
+                      </ng-template>
+           
+      </div>
+      
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table table-responsive">
+            <thead class="thead">
+              <tr class="thead-cols">
+    
+                <th class="info">assetId</th>
+    
+                <th class="info">ownerId</th>
+    
+                <th class="info">certificateName</th>
+    
+                <th class="info">certificateScore</th>
+    
+                <th class="info">authorizedParticipantId</th>
+    
+                <th class="info">organizationName</th>
+    
+                <th class="info">dob</th>
+    
+                <th class="info">expirationDate</th>
+    
+                <th class="info">transactionTime</th>
+    
+                <th class="info">isPublic</th>
+    
+                <th class="info">isAuthentication</th>
+    
+                <th class="info-actions">Actions</th>
+    
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let asset of myCertificateList">
+    
+    
+                <td class="asset-properties">{{asset.assetId}}</td>
+    
+                <td class="asset-properties">{{asset.ownerId}}</td>
+    
+                <td class="asset-properties">{{asset.certificateName}}</td>
+    
+                <td class="asset-properties">{{asset.certificateScore}}</td>
+    
+                <td class="asset-properties">{{asset.authorizedParticipantId}}</td>
+    
+                <td class="asset-properties">{{asset.organizationName}}</td>
+    
+                <td class="asset-properties">{{asset.dob}}</td>
+    
+                <td class="asset-properties">{{asset.expirationDate}}</td>
+    
+                <td class="asset-properties">{{asset.transactionTime}}</td>
+    
+                <td class="asset-properties">{{asset.isPublic}}</td>
+                
+                <td>
+                  <span *ngFor="let asset2 of myAuthenticationList" >
+                    <b *ngIf="asset2.resumeAssetId == asset.assetId">
+                      {{authenticationExist()}}
+                    </b>
+                  </span>
+                  {{printAuthentication()}}
+                </td>
+    
+    
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+</div>
