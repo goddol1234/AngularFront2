@@ -1,0 +1,77 @@
+<p>Enter the required values below.</p>
+    <form [formGroup]="myForm">
+      <div class="modal-body">
+
+        <div class="form-group text-left">
+          <label for="userId">userId</label>
+          <input formControlName="userId" type="text" class="form-control">
+        </div>
+
+        <div class="form-group text-left">
+          <label for="userName">userName</label>
+          <input formControlName="userName" type="text" class="form-control">
+        </div>
+
+        <div class="form-group text-left">
+          <label for="dob">dob</label>
+          <input formControlName="dob" type="text" class="form-control">
+        </div>
+
+        <div class="form-group text-left">
+          <label for="address">address</label>
+          <textarea formControlName="address" class="form-control" rows="3"></textarea>
+        </div>
+
+        <div class="form-group text-left">
+          <label for="phoneNumber">phoneNumber</label>
+          <input formControlName="phoneNumber" type="text" class="form-control">
+        </div>
+
+        <div class="form-group text-left">
+          <label for="email">email</label>
+          <input formControlName="email" type="text" class="form-control">
+        </div>
+
+        <div class="form-group text-left">
+          <label for="isPublic">isPublic</label>
+          <input formControlName="isPublic" type="checkbox" class="form-control">
+        </div>
+
+        <div class="form-group text-left">
+          <label for="isHuntingForJob">isHuntingForJob</label>
+          <input formControlName="isHuntingForJob" type="checkbox" class="form-control">
+        </div>
+
+      </div>
+      <button (click)="addParticipant(myForm);"  type="submit" class="btn btn-success">Confirm</button>
+    </form>
+
+
+      <!-- <div class="row justify-content-md-center">
+          <div class="col-md-4">
+              <img class="user-avatar" src="assets/images/logo.png" width="150px" />
+              <h1>Create User</h1>
+              <form role="form">
+                  <div class="form-content">
+                      <div class="form-group">
+                          <input type="text" class="form-control input-underline input-lg" id="" placeholder="Full Name">
+                      </div>
+  
+                      <div class="form-group">
+                          <input type="text" class="form-control input-underline input-lg" id="" placeholder="Email">
+                      </div>
+  
+                      <div class="form-group">
+                          <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
+                      </div>
+                      <div class="form-group">
+                          <input type="password" class="form-control input-underline input-lg" id="" placeholder="Repeat Password">
+                      </div>
+                  </div>
+                  <a class="btn rounded-btn" [routerLink]="['/dashboard']"> Register </a>&nbsp;
+                  <a class="btn rounded-btn" [routerLink]="['/login']"> Log in </a>
+              </form>
+          </div>
+      </div>
+   -->
+  

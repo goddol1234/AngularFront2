@@ -1,0 +1,62 @@
+<p>Enter the required values below.</p>
+<form [formGroup]="myForm">
+  <div class="modal-body">                        
+        <div class="form-group text-left">
+          <label for="orgId">orgId</label>                  
+            <input formControlName="orgId" type="text" class="form-control">                  
+        </div>                                          
+        <div class="form-group text-left">
+          <label for="orgName">orgName</label>                  
+            <input formControlName="orgName" type="text" class="form-control">                  
+        </div>                                         
+        <div class="form-group text-left">
+          <label for="address">address</label>                  
+              <textarea formControlName="address" class="form-control" rows="3"></textarea>                  
+        </div>                                          
+        <div class="form-group text-left">
+          <label for="contactAdress">contactAdress</label>                  
+            <input formControlName="contactAdress" type="text" class="form-control">                  
+        </div>                                          
+        <div class="form-group text-left">
+          <label for="homepage">homepage</label>                  
+            <input formControlName="homepage" type="text" class="form-control">                  
+        </div>                                          
+        <div class="form-group text-left">
+          <label for="discription">discription</label>                  
+            <input formControlName="discription" type="text" class="form-control">                  
+        </div>                                          
+        <div class="form-group text-left">
+          <label for="requestResumeList">requestResumeList</label>                  
+              <textarea formControlName="requestResumeList" class="form-control" rows="3"></textarea>                  
+        </div>                            
+      </div>
+      <button (click)="addParticipant(myForm);"  type="submit" class="btn btn-success">Confirm</button>
+    </form>
+
+      <!-- <div class="row justify-content-md-center">
+          <div class="col-md-4">
+              <img class="user-avatar" src="assets/images/logo.png" width="150px" />
+              <h1>Organization</h1>
+              <form role="form">
+                  <div class="form-content">
+                      <div class="form-group">
+                          <input type="text" class="form-control input-underline input-lg" id="" placeholder="Full Name">
+                      </div>
+  
+                      <div class="form-group">
+                          <input type="text" class="form-control input-underline input-lg" id="" placeholder="Email">
+                      </div>
+  
+                      <div class="form-group">
+                          <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
+                      </div>
+                      <div class="form-group">
+                          <input type="password" class="form-control input-underline input-lg" id="" placeholder="Repeat Password">
+                      </div>
+                  </div>
+                  <a class="btn rounded-btn" [routerLink]="['/dashboard']"> Register </a>&nbsp;
+                  <a class="btn rounded-btn" [routerLink]="['/login']"> Log in </a>
+              </form>
+          </div>
+      </div>
+   -->

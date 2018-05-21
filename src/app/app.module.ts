@@ -10,6 +10,11 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
+import { CreateCardComponent } from './create-card/create-card.component';
+import { CreateUserComponent } from './create-user/create-user.component';
+import { CreateOrganizationComponent } from './create-organization/create-organization.component';
+import { DataService } from './data.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
     /* for development
@@ -29,6 +34,8 @@ export const createTranslateLoader = (http: HttpClient) => {
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -38,8 +45,13 @@ export const createTranslateLoader = (http: HttpClient) => {
         }),
         AppRoutingModule
     ],
-    declarations: [AppComponent],
-    providers: [AuthGuard],
+    declarations: [
+        AppComponent,
+        CreateCardComponent,
+        CreateUserComponent,
+        CreateOrganizationComponent
+    ],
+    providers: [AuthGuard,DataService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

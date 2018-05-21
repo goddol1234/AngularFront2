@@ -1,0 +1,9 @@
+<div>
+  <div *ngIf="isAuthentication" >
+    <button type="submit" [routerLink]="['/dashboard2']"  >하.. 정말 이게나온다는것은 정말 스트레스가 드디어 해결이 된다는 뜻이군요 나름 별거한건 없지만 그래도 정말 감격스럽습니다 </button>
+  </div>
+  <div *ngIf="!isAuthentication">
+    <button type="submit" [routerLink]="['/Create-Organization']" >Organization</button>
+    <button type="submit" [routerLink]="['/Create-User']" > User</button>
+  </div>
+</div>
