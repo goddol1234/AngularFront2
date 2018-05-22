@@ -1,0 +1,26 @@
+<p>Enter the required values below.</p>
+<form [formGroup]="myForm">
+  <div class="modal-body">
+    <div class="form-group text-left">
+      <label for="shcId">schId</label>
+      <input formControlName="schId" type="text" class="form-control">
+    </div>
+    <div class="form-group text-left">
+      <label for="schName">schName</label>
+      <input formControlName="schName" type="text" class="form-control">
+    </div>
+    <div class="form-group text-left">
+      <label for="address">address</label>
+      <textarea formControlName="address" class="form-control" rows="3"></textarea>
+    </div>
+    <div class="form-group text-left">
+      <label for="contactAdress">contactAdress</label>
+      <input formControlName="contactAdress" type="text" class="form-control">
+    </div>
+    <div class="form-group text-left">
+      <label for="homepage">homepage</label>
+      <input formControlName="homepage" type="text" class="form-control">
+    </div>
+  </div>
+  <button (click)="addParticipant(myForm);" type="submit" class="btn btn-success">Confirm</button>
+</form>

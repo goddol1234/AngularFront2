@@ -5,17 +5,20 @@ import { HttpClient , HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class CreateOrgService {
-
+    //private baseUrl ='http://localhost:';
+    private baseUrl ='http://13.124.13.55:';
+    private adminUrl= this.baseUrl + '3001/api/';
+    private multiUrl= this.baseUrl + '3000/api/';
     constructor(private http : HttpClient){
     }
 
 
     public addParticipant(itemToAdd: any) {
-        return this.http.post('http://13.124.13.55:3001/api/Organization', itemToAdd).toPromise();
+        return this.http.post(this.adminUrl +'Organization', itemToAdd).toPromise();
     }
 
     public issueParticipant( identity : any ){
-        return this.http.post('http://13.124.13.55:3001/api/system/identities/issue',identity, {responseType: 'blob'}).toPromise();
+        return this.http.post(this.adminUrl +'system/identities/issue',identity, {responseType: 'blob'}).toPromise();
     }
 
     public importCard(cardData, userId : string){
@@ -24,6 +27,6 @@ export class CreateOrgService {
         formData.append('card',file);
         const headers = new HttpHeaders();
         headers.set('Content-Type','multipart/form-data');
-        return this.http.post('http://13.124.13.55:3000/api/wallet/import', formData , {withCredentials : true , headers}).toPromise();
+        return this.http.post(this.multiUrl + 'wallet/import', formData , {withCredentials : true , headers}).toPromise();
     }
 }

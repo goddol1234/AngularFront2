@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CreateUserService } from './create-user.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-user',
@@ -25,7 +26,7 @@ export class CreateUserComponent implements OnInit {
   isHuntingForJob = new FormControl("", Validators.required);
   participantsType = new FormControl("", Validators.required);
 
-  constructor(private createUserService: CreateUserService, fb: FormBuilder) {
+  constructor(private createUserService: CreateUserService, fb: FormBuilder, public router : Router) {
     this.isAuthentication = null;
     this.currentType = null;
     this.myForm = fb.group({
@@ -81,14 +82,16 @@ export class CreateUserComponent implements OnInit {
         console.log(issueParticipant);
         return this.createUserService.issueParticipant(issueParticipant).then((result) => {
           return this.createUserService.importCard(result, this.userId.value).then(()=>{
-          history.back();
+            this.router.navigate(['/login']);
           });
         });
       })
       .catch((error) => {
         if (error == 'Server error') {
-          }
+          alert('입력을 확인해 주세요');
+        }
         else {
+          alert('입력을 확인해 주세요');
         }
       });
   

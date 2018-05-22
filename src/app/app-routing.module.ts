@@ -5,6 +5,9 @@ import { AuthGuard } from './shared';
 import { CreateCardComponent } from './create-card/create-card.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { CreateOrganizationComponent } from './create-organization/create-organization.component';
+import { CreateSchoolComponent } from './create-school/create-school.component';
+import { CreateEnterpriseComponent } from './create-enterprise/create-enterprise.component';
+
 
 const routes: Routes = [
     //{ path: '', loadChildren: './layout/layout.module#LayoutModule', canActivate: [AuthGuard] },
@@ -25,6 +28,9 @@ const routes: Routes = [
     { path: 'Create-Card', component: CreateCardComponent },
     { path: 'Create-User', component: CreateUserComponent },
     { path: 'Create-Organization', component: CreateOrganizationComponent },
+    { path: 'Create-School', component: CreateSchoolComponent },
+    { path: 'Create-Enterprise', component: CreateEnterpriseComponent },
+
 
     { path: '**', redirectTo: 'not-found' }
 ];

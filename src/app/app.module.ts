@@ -15,6 +15,8 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { CreateOrganizationComponent } from './create-organization/create-organization.component';
 import { DataService } from './data.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateSchoolComponent } from './create-school/create-school.component';
+import { CreateEnterpriseComponent } from './create-enterprise/create-enterprise.component';
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
     /* for development
@@ -49,7 +51,9 @@ export const createTranslateLoader = (http: HttpClient) => {
         AppComponent,
         CreateCardComponent,
         CreateUserComponent,
-        CreateOrganizationComponent
+        CreateOrganizationComponent,
+        CreateSchoolComponent,
+        CreateEnterpriseComponent
     ],
     providers: [AuthGuard,DataService],
     bootstrap: [AppComponent]

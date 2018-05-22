@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CreateOrgService } from './create-organization.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-organization',
@@ -27,7 +27,7 @@ export class CreateOrganizationComponent implements OnInit {
   discription = new FormControl("", Validators.required);
   requestResumeList = new FormControl("", Validators.required);
 
-  constructor(private createOrgService: CreateOrgService, fb: FormBuilder) {
+  constructor(private createOrgService: CreateOrgService, fb: FormBuilder, public router:Router) {
     this.myForm = fb.group({
       orgId: this.orgId,
       orgName: this.orgName,
@@ -77,14 +77,16 @@ export class CreateOrganizationComponent implements OnInit {
         return this.createOrgService.issueParticipant(issueParticipant).then((result) => {
 
           return this.createOrgService.importCard(result, this.orgName.value).then(()=>{
-            history.back();
+            this.router.navigate(['/login']);
           });
         });
       })
       .catch((error) => {
         if (error == 'Server error') {
+          alert('입력을 확인해 주세요');
         }
         else {
+          alert('입력을 확인해 주세요');
         }
       });
   

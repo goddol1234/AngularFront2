@@ -4,7 +4,7 @@ import { Http, Response, Headers } from '@angular/http';
 import { HttpClient , HttpHeaders } from '@angular/common/http';
 
 @Injectable()
-export class CreateUserService {
+export class CreateSchService {
     //private baseUrl = 'http://localhost:';
     private baseUrl ='http://13.124.13.55:';
     private adminUrl= this.baseUrl + '3001/api/';
@@ -12,10 +12,10 @@ export class CreateUserService {
     constructor(private http : HttpClient){
     }
 
- 
+
     public addParticipant(itemToAdd: any) {
         console.log(itemToAdd);
-        return this.http.post(this.adminUrl +'User', itemToAdd).toPromise();
+        return this.http.post(this.adminUrl +'School', itemToAdd).toPromise();
     }
 
     public issueParticipant( identity : any ){
@@ -30,5 +30,4 @@ export class CreateUserService {
         headers.set('Content-Type','multipart/form-data');
         return this.http.post(this.multiUrl + 'wallet/import', formData , {withCredentials : true , headers}).toPromise();
     }
-    
 }
