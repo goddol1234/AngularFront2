@@ -39,7 +39,7 @@ export class DataService<Type> {
 
     public getAll(ns: string): Observable<Type[]> {
         //console.log('GetAll ' + ns + ' to ' + this.actionUrl + ns);
-        return this.http.get(`${this.actionUrl}${ns}`)
+        return this.http.get(`${this.actionUrl}${ns}` , {withCredentials : true})
           .map(this.extractData)
           .catch(this.handleError);
     }
@@ -47,7 +47,7 @@ export class DataService<Type> {
     public getSingle(ns: string, id: string): Observable<Type> {
         //console.log('GetSingle ' + ns);
 
-        return this.http.get(this.actionUrl + ns + '/' + id + this.resolveSuffix)
+        return this.http.get(this.actionUrl + ns + '/' + id + this.resolveSuffix , {withCredentials : true})
           .map(this.extractData)
           .catch(this.handleError);
     }
@@ -58,7 +58,7 @@ export class DataService<Type> {
         console.log('Add ' + ns);
         console.log('asset', asset);
         */
-        return this.http.post(this.actionUrl + ns, asset)
+        return this.http.post(this.actionUrl + ns, asset , {withCredentials : true})
           .map(this.extractData)
           .catch(this.handleError);
     }
@@ -70,7 +70,7 @@ export class DataService<Type> {
         console.log('what is the updated item?', itemToUpdate);
         console.log('what is the updated item?', JSON.stringify(itemToUpdate));
         */
-        return this.http.put(`${this.actionUrl}${ns}/${id}`, itemToUpdate)
+        return this.http.put(`${this.actionUrl}${ns}/${id}`, itemToUpdate , {withCredentials : true})
           .map(this.extractData)
           .catch(this.handleError);
     }
@@ -78,7 +78,7 @@ export class DataService<Type> {
     public delete(ns: string, id: string): Observable<Type> {
         //console.log('Delete ' + ns);
 
-        return this.http.delete(this.actionUrl + ns + '/' + id)
+        return this.http.delete(this.actionUrl + ns + '/' + id , {withCredentials : true})
           .map(this.extractData)
           .catch(this.handleError);
     }
@@ -101,14 +101,14 @@ export class DataService<Type> {
     public getSystemIdentities(): Observable<Type> {
         //console.log("system Identities : " + this.actionUrl +   "system/identities");
 
-        return this.http.get(this.actionUrl + "system/identities")
+        return this.http.get(this.actionUrl + "system/identities" , {withCredentials : true})
           .map(this.extractData)
           .catch(this.handleError);
     }
 
     public getSystemPing() :Observable<JSON> {
         //console.log("system ping : " + this.actionUrl +   "system/ping");
-        return this.http.get(this.actionUrl + "system/ping")
+        return this.http.get(this.actionUrl + "system/ping" , {withCredentials : true})
           .map(this.extractData)
           .catch(this.handleError);
 
@@ -118,7 +118,7 @@ export class DataService<Type> {
     public getSystemQueryAuthentication(ns: string,  parameterName: string, param: string): Observable<Authentication[]> {
         //console.log("system query : " + this.actionUrl + "queries/" + ns + '?' + parameterName + "=" + param);
 
-        return this.http.get(this.actionUrl + "queries/" + ns + '?' + parameterName + "=" + param)
+        return this.http.get(this.actionUrl + "queries/" + ns + '?' + parameterName + "=" + param , {withCredentials : true})
           .map(this.extractData)
           .catch(this.handleError);
     }
@@ -128,7 +128,7 @@ export class DataService<Type> {
     public getSystemQueryResumeInfoUser(ns: string,  parameterName: string, param: string): Observable<ResumeInfoUser[]> {
         //console.log("system query : " + this.actionUrl + "queries/" + ns + '?' + parameterName + "=" + param);
 
-        return this.http.get(this.actionUrl + "queries/" + ns + '?' + parameterName + "=" + param)
+        return this.http.get(this.actionUrl + "queries/" + ns + '?' + parameterName + "=" + param , {withCredentials : true})
           .map(this.extractData)
           .catch(this.handleError);
     }
@@ -137,7 +137,7 @@ export class DataService<Type> {
     public getSystemQueryCertificate(ns: string,  parameterName: string, param: string): Observable<Certificate[]> {
         //console.log("system query : " + this.actionUrl + "queries/" + ns + '?' + parameterName + "=" + param);
 
-        return this.http.get(this.actionUrl + "queries/" + ns + '?' + parameterName + "=" + param)
+        return this.http.get(this.actionUrl + "queries/" + ns + '?' + parameterName + "=" + param , {withCredentials : true})
           .map(this.extractData)
           .catch(this.handleError);
     }
@@ -145,7 +145,7 @@ export class DataService<Type> {
     public getSystemQueryAwardDetails(ns: string,  parameterName: string, param: string): Observable<AwardDetails[]> {
         //console.log("system query : " + this.actionUrl + "queries/" + ns + '?' + parameterName + "=" + param);
 
-        return this.http.get(this.actionUrl + "queries/" + ns + '?' + parameterName + "=" + param)
+        return this.http.get(this.actionUrl + "queries/" + ns + '?' + parameterName + "=" + param , {withCredentials : true})
           .map(this.extractData)
           .catch(this.handleError);
     }
@@ -153,7 +153,7 @@ export class DataService<Type> {
     public getSystemQueryUserInfoInEnt(ns: string,  parameterName: string, param: string): Observable<UserInfoInEnt[]> {
         //console.log("system query : " + this.actionUrl + "queries/" + ns + '?' + parameterName + "=" + param);
 
-        return this.http.get(this.actionUrl + "queries/" + ns + '?' + parameterName + "=" + param)
+        return this.http.get(this.actionUrl + "queries/" + ns + '?' + parameterName + "=" + param , {withCredentials : true})
           .map(this.extractData)
           .catch(this.handleError);
     }
@@ -161,7 +161,7 @@ export class DataService<Type> {
     public getSystemQueryUserInfoInSch(ns: string,  parameterName: string, param: string): Observable<UserInfoInSch[]> {
         //console.log("system query : " + this.actionUrl + "queries/" + ns + '?' + parameterName + "=" + param);
 
-        return this.http.get(this.actionUrl + "queries/" + ns + '?' + parameterName + "=" + param)
+        return this.http.get(this.actionUrl + "queries/" + ns + '?' + parameterName + "=" + param , {withCredentials : true})
           .map(this.extractData)
           .catch(this.handleError);
     }

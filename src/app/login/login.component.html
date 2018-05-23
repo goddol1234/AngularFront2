@@ -4,32 +4,9 @@
             <img src="assets/images/resume.jpeg" width="150px" class="user-avatar" />
             <h1>R`ESUME</h1>
             <form role="form">
-                <div class="form-content">
-                    <div class="form-group">
-                        <input type="text" ng-model="name" class="form-control input-underline input-lg" id="" placeholder="Email">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
-                    </div>
-                </div>
-                <a class="btn rounded-btn"  onclick="location.href='http://13.124.13.55:3000/auth/github'"> GitHub by Login </a>
-                &nbsp;
-                <a class="btn rounded-btn" [routerLink]="['/dashboard2']" (click)="onLoggedin2()"> 유저 </a>
-                &nbsp;
-                <a class="btn rounded-btn" [routerLink]="['/dashboard3']" (click)="onLoggedin3()"> 기관 </a>
-                &nbsp;
-                <a class="btn rounded-btn" [routerLink]="['/dashboard4']" (click)="onLoggedin4()"> 학교 </a>
-                &nbsp;
-                <a class="btn rounded-btn" [routerLink]="['/dashboard5']" (click)="onLoggedin5()"> 기업 </a>
-                &nbsp;
-                <!-- <a class="btn rounded-btn" [routerLink]="['/dashboard3']" (click)="onLoggedin3()"> 유저 </a>
-                &nbsp;
-                <a class="btn rounded-btn" [routerLink]="['/dashboard4']" (click)="onLoggedin4()"> 인증기관 </a>
-                &nbsp; -->
-                 <!-- <a class="btn rounded-btn" [routerLink]="['/dashboard']" (click)="onLoggedin()"> Log in </a>
-                &nbsp;  -->
-                <a class="btn rounded-btn" [routerLink]="['/signup']">Register</a>
+               <div>
+                    <a class="btn rounded-btn"  onclick="location.href='http://13.124.13.55:3000/auth/github'">         GitHub by Login         </a>
+               </div>                
             </form>
         </div>
     </div>
