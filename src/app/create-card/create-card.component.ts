@@ -26,24 +26,38 @@ export class CreateCardComponent implements OnInit {
       .toPromise()
       .then((result) => {
         var Id;
+        console.log(result);
         Id = result['participant'];
         console.log(Id);
         if (Id == null) {
           return;
         }
         else {
+
           let types = Id.split('.');
           let temptype = types[4]; //with name
           let nametype = temptype.split('#');
           let type = nametype[0];
           console.log('type===  ' + type);
+
           if(type=='Organization'){
+
+            localStorage.setItem('isOrgin', 'true');
             this.router.navigate(['/dashboard3']);
+
           }else if(type=='User'){
+
+            localStorage.setItem('istestin', 'true');
             this.router.navigate(['/dashboard2']);
+
           }else if(type=='School'){
+
+            localStorage.setItem('isSchin', 'true');
             this.router.navigate(['/dashboard4']);
+
           }else if(type=='Enterprise'){
+            
+            localStorage.setItem('isEntin', 'true');
             this.router.navigate(['/dashboard5']);
           }
         }

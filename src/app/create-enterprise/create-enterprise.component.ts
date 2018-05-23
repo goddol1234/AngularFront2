@@ -73,7 +73,9 @@ export class CreateEnterpriseComponent implements OnInit {
       .then(() => {
         return this.createEntService.issueParticipant(issueParticipant).then((result) => {
           return this.createEntService.importCard(result, this.entName.value).then(() => {
-            this.router.navigate(['/login']);
+
+            localStorage.setItem('isEntin', 'true');
+            this.router.navigate(['/dashboard5']);
           });
         });
       })
