@@ -19,13 +19,13 @@ export class CreateOrganizationComponent implements OnInit {
   private participant;
   private currentId;
   private errorMessage;
+
   orgId = new FormControl("", Validators.required);
   orgName = new FormControl("", Validators.required);
   address = new FormControl("", Validators.required);
   contactAdress = new FormControl("", Validators.required);
   homepage = new FormControl("", Validators.required);
   discription = new FormControl("", Validators.required);
-  requestResumeList = new FormControl("", Validators.required);
 
   constructor(private createOrgService: CreateOrgService, fb: FormBuilder, public router:Router) {
     this.myForm = fb.group({
@@ -35,7 +35,6 @@ export class CreateOrganizationComponent implements OnInit {
       contactAdress: this.contactAdress,
       homepage: this.homepage,
       discription: this.discription,
-      requestResumeList: this.requestResumeList
     });
   };
   ngOnInit() {
@@ -43,17 +42,6 @@ export class CreateOrganizationComponent implements OnInit {
 
 
   addParticipant(form: any) {
-    this.tmpparticipant = {
-      $class: "hansung.ac.kr.participants.Organization",
-      "orgId": this.orgId.value,
-      "orgName": this.orgName.value,
-      "address": this.address.value,
-      "contactAdress": this.contactAdress.value,
-      "homepage": this.homepage.value,
-      "discription": this.discription.value,
-      "requestResumeList": this.requestResumeList.value
-    };
-
     const participant = {
       $class: "hansung.ac.kr.participants.Organization",
       "orgId" : this.orgId.value,
@@ -62,7 +50,7 @@ export class CreateOrganizationComponent implements OnInit {
       "contactAdress": this.contactAdress.value,
       "homepage": this.homepage.value,
       "discription": this.discription.value,
-      "requestResumeList": this.requestResumeList.value
+      "requestResumeList": []
     }
 
     const issueParticipant = {
@@ -92,15 +80,12 @@ export class CreateOrganizationComponent implements OnInit {
       });
   
     this.myForm.setValue({
-      "userId": null,
-      "userName": null,
-      "dob": null,
+      "orgId": null,
+      "orgName": null,
       "address": null,
-      "phoneNumber": null,
-      "email": null,
-      "isPublic": null,
-      "isHuntingForJob": null,
-      "participantsType": null
+      "contactAdress": null,
+      "homepage": null,
+      "discription": null,
     });
   }
 

@@ -31,7 +31,8 @@ export class DataService<Type> {
     private headers: Headers;
 
     constructor(private http: Http) {
-        this.actionUrl = 'http://13.124.13.55:3000/api/';
+        //this.actionUrl = 'http://13.124.13.55:3000/api/';
+        this.actionUrl = 'http://localhost:3000/api/';
         this.headers = new Headers();
         this.headers.append('Content-Type', 'application/json');
         this.headers.append('Accept', 'application/json');
@@ -58,6 +59,7 @@ export class DataService<Type> {
         console.log('Add ' + ns);
         console.log('asset', asset);
         */
+       console.log("add" + ns + asset);
         return this.http.post(this.actionUrl + ns, asset,{withCredentials : true})
         .pipe(map(this.extractData))
             .pipe(catchError(this.handleError));
