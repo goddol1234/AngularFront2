@@ -117,7 +117,7 @@ export class RequestResumeComponent implements OnInit {
         console.log(Id[1]);
         this.currentId = Id[1];
 
-        this.serviceRequestResume.getOrg(this.currentId) //   ** 여기서 ParticipantType에 따라 getOrg / getEnt/ getSch 선택
+        this.serviceRequestResume.getSch(this.currentId) //   ** 여기서 ParticipantType에 따라 getOrg / getEnt/ getSch 선택
           .toPromise()
           .then((currentParticipant) => {
             this.myRequestResumeList = currentParticipant.requestResumeList;
@@ -137,7 +137,20 @@ export class RequestResumeComponent implements OnInit {
   }
 
 
+  transferToDate(target : string): string{
 
+    if(target == null){
+      return null;
+    }
+
+
+    var targetDate = new Date(target);
+    var options = {
+      year: "numeric", month: "short", day: "numeric"
+    };
+    var result = targetDate.toLocaleDateString('ko-KR', options);
+     return result;
+  }
 	/**
    * Event handler for changing the checked state of a checkbox (handles array enumeration values)
    * @param {String} name - the name of the participant field to update

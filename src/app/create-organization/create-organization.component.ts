@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { CreateOrgService } from './create-organization.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { RouterLink, Router } from '@angular/router';
-
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { routerTransition } from '../router.animations';
 @Component({
   selector: 'app-create-organization',
   templateUrl: './create-organization.component.html',
   styleUrls: ['./create-organization.component.css'],
-  providers: [CreateOrgService]
+  providers: [CreateOrgService],
+  animations: [routerTransition()]
 })
 export class CreateOrganizationComponent implements OnInit {
   private isAuthentication;

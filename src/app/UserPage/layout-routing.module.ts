@@ -20,7 +20,11 @@ const routes: Routes = [
             { path: 'Organization', loadChildren: './Organization/Organization.module#OrganizationModule' },
             { path: 'Enterprise', loadChildren: './Enterprise/Enterprise.module#EnterpriseModule' },
             { path: 'AwardDetails', loadChildren: './AwardDetails/AwardDetails.module#AwardDetailsModule' },
-            { path: 'Searchtitle', loadChildren: './Searchtitle/Search.module#SearchModule' }
+            { path: 'SearchtitleCer', loadChildren: './SearchtitleCer/Search.module#SearchModule' },
+            { path: 'SearchtitleEnt', loadChildren: './SearchtitleEnt/Enterprise.module#EnterpriseModule' },
+            { path: 'SearchtitleSch', loadChildren: './SearchtitleSch/School.module#SchoolModule' },
+            { path: 'SearchtitleOrg', loadChildren: './SearchtitleOrg/Organization.module#OrganizationModule' },
+            { path: 'SearchtitleUser', loadChildren: './SearchtitleUser/User.module#UserModule' }
 
 
 

@@ -208,6 +208,21 @@ export class UserInfoInEntComponent implements OnInit {
 
 
 
+  transferToDate(target : string): string{
+
+    if(target == null){
+      return null;
+    }
+
+
+    var targetDate = new Date(target);
+    var options = {
+      year: "numeric", month: "short", day: "numeric"
+    };
+    var result = targetDate.toLocaleDateString('ko-KR', options);
+     return result;
+  }
+
   ngOnInit(): void {
     this.loadAll();
   }

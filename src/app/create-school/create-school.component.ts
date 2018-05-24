@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { CreateSchService } from './create-school.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { RouterLink, Router } from '@angular/router';
-
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { routerTransition } from '../router.animations';
 
 @Component({
   selector: 'app-create-school',
   templateUrl: './create-school.component.html',
   styleUrls: ['./create-school.component.scss'],
-  providers:[CreateSchService]
+  providers:[CreateSchService],
+  animations: [routerTransition()]
 })
 export class CreateSchoolComponent implements OnInit {
   private isAuthentication;

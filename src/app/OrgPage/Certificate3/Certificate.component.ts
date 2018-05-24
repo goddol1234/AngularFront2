@@ -270,6 +270,21 @@ closeResult: string;
 
 
 
+  transferToDate(target : string): string{
+
+    if(target == null){
+      return null;
+    }
+
+
+    var targetDate = new Date(target);
+    var options = {
+      year: "numeric", month: "short", day: "numeric"
+    };
+    var result = targetDate.toLocaleDateString('ko-KR', options);
+     return result;
+  }
+
   loadAll(): Promise<any> {
     let tempList = [];
     return this.serviceCertificate.getSystemPing()

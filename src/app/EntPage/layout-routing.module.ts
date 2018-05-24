@@ -20,7 +20,13 @@ const routes: Routes = [
             { path: 'Organization5', loadChildren: './Organization5/Organization.module#OrganizationModule' },
             { path: 'Enterprise5', loadChildren: './Enterprise5/Enterprise.module#EnterpriseModule' },
             { path: 'AwardDetails5', loadChildren: './AwardDetails5/AwardDetails.module#AwardDetailsModule' },
-            { path: 'Searchtitle5', loadChildren: './Searchtitle5/Search.module#SearchModule' }
+            { path: 'SearchtitleCer5', loadChildren: './SearchtitleCer5/Search.module#SearchModule' },
+            { path: 'SearchtitleEnt5', loadChildren: './SearchtitleEnt5/Enterprise.module#EnterpriseModule' },
+            { path: 'SearchtitleSch5', loadChildren: './SearchtitleSch5/School.module#SchoolModule' },
+            { path: 'SearchtitleOrg5', loadChildren: './SearchtitleOrg5/Organization.module#OrganizationModule' },
+            { path: 'SearchtitleUser5', loadChildren: './SearchtitleUser5/User.module#UserModule' },
+            { path: 'SearchtitleInfoSch5', loadChildren: './SearchtitleInfoSch5/UserInfoInSch.module#UserInfoInSchModule' }
+
 
 
 

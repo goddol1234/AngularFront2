@@ -221,7 +221,20 @@ export class SearchComponent implements OnInit {
     hasArrayValue(name: string, value: any): boolean {
       return this[name].value.indexOf(value) !== -1;
     }
+    transferToDate(target : string): string{
+
+      if(target == null){
+        return null;
+      }
   
+  
+      var targetDate = new Date(target);
+      var options = {
+        year: "numeric", month: "short", day: "numeric"
+      };
+      var result = targetDate.toLocaleDateString('ko-KR', options);
+       return result;
+    }
     addAsset(form: any): Promise<any> {
       this.asset = {
         $class: "hansung.ac.kr.assets.Certificate",

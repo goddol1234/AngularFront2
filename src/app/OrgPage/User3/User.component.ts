@@ -171,6 +171,21 @@ export class UserComponent implements OnInit {
     }
   }
 
+
+  transferToDate(target : string): string{
+
+    if(target == null){
+      return null;
+    }
+
+
+    var targetDate = new Date(target);
+    var options = {
+      year: "numeric", month: "short", day: "numeric"
+    };
+    var result = targetDate.toLocaleDateString('ko-KR', options);
+     return result;
+  }
 	/**
 	 * Checkbox helper, determining whether an enumeration value should be selected or not (for array enumeration values
    * only). This is used for checkboxes in the participant updateDialog.

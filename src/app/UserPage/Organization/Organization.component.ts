@@ -194,7 +194,20 @@ export class OrganizationComponent implements OnInit {
     return this[name].value.indexOf(value) !== -1;
   }
 
+  transferToDate(target : string): string{
 
+    if(target == null){
+      return null;
+    }
+
+
+    var targetDate = new Date(target);
+    var options = {
+      year: "numeric", month: "short", day: "numeric"
+    };
+    var result = targetDate.toLocaleDateString('ko-KR', options);
+     return result;
+  }
   addParticipant(form: any): Promise<any> {
     this.participant = {
       $class: "hansung.ac.kr.participants.Organization",

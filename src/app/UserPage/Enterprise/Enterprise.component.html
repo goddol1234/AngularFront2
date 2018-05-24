@@ -17,60 +17,53 @@
   
       <table style="margin-left: auto; margin-right: auto;" >
           <thead class="thead">
-                <tr class="thead-cols">
-
+              <tr class="thead-cols">
 
                   <th class="info">기업 ID</th>
-
-                  <th class="info">기업 이름</th>
-
-                  <th class="info">직책</th>
-
-                  <th class="info">수행업무</th>
-
-                  <th class="info">입사날짜</th>
-
-                  <th class="info">퇴사날짜</th>
-
-
-                  <th class="info">공개여부</th>
-
-                  <th class="info">인증여부</th>
-
-                  <th class="info-actions">처리</th>
+      
+                  <th class="info">기업명</th>
+      
+                  <th class="info">주소</th>
+      
+                  <th class="info">연락처</th>
+      
+                  <th class="info">홈페이지</th>
+      
+                  <th class="info">사원수</th>
+      
+                  <th class="info">매출액</th>
+      
+                  <th class="info">업종</th>
+      
+                  <th class="info">설명</th>
+      
+      
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let asset of myUserInfoInEntList">
+                <tr *ngFor="let asset of allParticipants">
 
 
 
-                  <td class="asset-properties">{{asset.authorizedParticipantId}}</td>
+                    <td class="participant-properties">{{participant.entId}}</td>
 
-                  <td class="asset-properties">{{asset.enterpriseName}}</td>
-
-                  <td class="asset-properties">{{asset.userPosition}}</td>
-
-                  <td class="asset-properties">{{asset.performingTask}}</td>
-
-                  <td class="asset-properties">{{asset.dateOfEmployment}}</td>
-
-                  <td class="asset-properties">{{asset.retirementDate}}</td>
-
-
-
-                  <td class="asset-properties">{{asset.isPublic}}</td>
-
-
-                  <td class="asset-properties">
-                    <span *ngFor="let asset2 of myAuthenticationList">
-                      <b *ngIf="asset2.resumeAssetId == asset.assetId">
-                        {{authenticationExist(asset2.approvalStatus)}}
-                      </b>
-                    </span>
-                    {{printAuthentication()}}
-
-                  </td>
+                    <td class="participant-properties">{{participant.entName}}</td>
+        
+                    <td class="participant-properties">{{participant.address}}</td>
+        
+                    <td class="participant-properties">{{participant.contactAdress}}</td>
+        
+                    <td class="participant-properties">{{participant.hompage}}</td>
+        
+                    <td class="participant-properties">{{participant.numberOfemployees}}</td>
+        
+                    <td class="participant-properties">{{participant.sales}}</td>
+        
+                    <td class="participant-properties">{{participant.industryCategory}}</td>
+        
+                    <td class="participant-properties">{{participant.discription}}</td>
+        
+        
 
                   <td>
                     <!--

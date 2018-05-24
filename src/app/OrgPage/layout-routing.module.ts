@@ -21,7 +21,11 @@ const routes: Routes = [
             { path: 'Enterprise3', loadChildren: './Enterprise3/Enterprise.module#EnterpriseModule' },
             { path: 'AwardDetails3', loadChildren: './AwardDetails3/AwardDetails.module#AwardDetailsModule' },
             { path: 'Organization3Info', loadChildren: './Organization3Info/Organization.module#OrganizationModule' },
-            { path: 'Searchtitle3', loadChildren: './Searchtitle3/Search.module#SearchModule' }
+            { path: 'SearchtitleCer3', loadChildren: './SearchtitleCer3/Search.module#SearchModule' },
+            { path: 'SearchtitleEnt3', loadChildren: './SearchtitleEnt3/Enterprise.module#EnterpriseModule' },
+            { path: 'SearchtitleSch3', loadChildren: './SearchtitleSch3/School.module#SchoolModule' },
+            { path: 'SearchtitleOrg3', loadChildren: './SearchtitleOrg3/Organization.module#OrganizationModule' },
+            { path: 'SearchtitleUser3', loadChildren: './SearchtitleUser3/User.module#UserModule' }
 
 
 

@@ -42,7 +42,7 @@
                                 <div class="form-group text-left">
                                   <label for="certificateScore">점수</label>
                       
-                                  <input formControlName="certificateScore" type="number" class="form-control">
+                                  <input formControlName="certificateScore" type="number" class="form-control" step="any">
                       
                                 </div>
                       
@@ -147,9 +147,9 @@
       
                   <td class="asset-properties">{{asset.organizationName}}</td>
       
-                  <td class="asset-properties">{{asset.dob}}</td>
+                  <td class="asset-properties">{{transferToDate(asset.dob)}}</td>
       
-                  <td class="asset-properties">{{asset.expirationDate}}</td>
+                  <td class="asset-properties">{{transferToDate(asset.expirationDate)}}</td>
       
                   <td class="asset-properties">{{asset.isPublic}}</td>
       

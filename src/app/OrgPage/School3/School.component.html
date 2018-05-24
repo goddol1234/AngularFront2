@@ -116,61 +116,36 @@
         
               <table style="margin-left: auto; margin-right: auto;" >
                   <thead class="thead">
-                  <tr class="thead-cols">
-        
-                   
-                    <th class="info">학교 ID</th>
-        
-                    <th class="info">학교 이름</th>
-        
-                    <th class="info">입학일</th>
-        
-                    <th class="info">졸업일</th>
-        
-                    <th class="info">전공 (학과/인문계/실업계)</th>
-        
-                    <th class="info">학점</th>
-        
-                    <th class="info">공개여부</th>
-        
-                    <th class="info">인증여부</th>
-        
-                    <th class="info-actions">처리</th>
-                  </tr>
+                      <tr class="thead-cols">
+              
+                          <th class="info">학교Id</th>
+                      
+                          <th class="info">학교이름</th>
+                      
+                          <th class="info">주소</th>
+                      
+                          <th class="info">연락처</th>
+                      
+                          <th class="info">홈페이지</th>
+                      
+                      
+                    </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let asset of myUserInfoInSchList">
+                  <tr *ngFor="let asset of allParticipants">
         
         
-                    
-        
-                    <td class="asset-properties">{{asset.authorizedParticipantId}}</td>
-        
-                    <td class="asset-properties">{{asset.schoolName}}</td>
-        
-                    <td class="asset-properties">{{asset.entranceDate}}</td>
-        
-                    <td class="asset-properties">{{asset.graduationDate}}</td>
-        
-                    
-        
-                    <td class="asset-properties">{{asset.majorField}}</td>
-        
-                    <td class="asset-properties">{{asset.gradeAverage}}</td>
-        
-                    <td class="asset-properties">{{asset.isPublic}}</td>
-        
-        
-                    <td class="asset-properties">
-                      <span *ngFor="let asset2 of myAuthenticationList">
-                        <b *ngIf="asset2.resumeAssetId == asset.assetId">
-                          {{authenticationExist(asset2.approvalStatus)}}
-                        </b>
-                      </span>
-                      {{printAuthentication()}}
-        
-                    </td>
-        
+                      <td class="participant-properties">{{participant.schId}}</td>
+              
+                      <td class="participant-properties">{{participant.schName}}</td>
+                  
+                      <td class="participant-properties">{{participant.address}}</td>
+                  
+                      <td class="participant-properties">{{participant.contactAdress}}</td>
+                  
+                      <td class="participant-properties">{{participant.hompage}}</td>
+                  
+                  
         
                     <td>
                     <!--
@@ -188,7 +163,7 @@
                       </svg>
                     </button>
                   -->
-
+<!-- 
                     <button (click)="open(del)" (click)="setId(asset.assetId);" type="button" class="btn btn-delete" data-toggle="modal" data-target="#deleteAssetModal">
                       <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         width="13.8px" height="16px" viewBox="0 0 65.9 76.2" style="enable-background:new 0 0 65.9 76.2;" xml:space="preserve">
@@ -198,35 +173,11 @@
                        C59.2,21,57.9,19.6,56.2,19.6z M62.9,10.3H49.3V3c0-1.7-1.3-3-3-3H19.6c-1.7,0-3,1.3-3,3v7.3H3c-1.7,0-3,1.3-3,3s1.3,3,3,3h59.9
                        c1.7,0,3-1.3,3-3S64.5,10.3,62.9,10.3z M43.3,10.3H22.6V6h20.7L43.3,10.3L43.3,10.3z" />
                       </svg>
-                    </button>
+                    </button> -->
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
-       
 
-<ng-template #del let-c="close" let-d="dismiss">
-  <div id="deleteAssetModal" tabindex="-1" role="dialog" aria-labelledby="deleteAssetModalLabel">
-
-    <div class="modal-header">
-      <h4 class="modal-title" id="deleteAssetModalLabel">Delete Asset</h4>
-
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="d('Cross click')">
-
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <form [formGroup]="myForm" (ngSubmit)="deleteAsset()">
-      <div class="modal-body">
-        삭제 하시겠습니까?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="d('Cross click')">아니오</button>
-        <button (click)="c('Close click')" (click)="deleteAsset()" type="submit" class="btn btn-danger" data-dismiss="modal">예</button>
-      </div>
-    </form>
-
-  </div>
-</ng-template>
 

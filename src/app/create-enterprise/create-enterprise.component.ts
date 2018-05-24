@@ -2,12 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { CreateEntService } from './create-enterprise.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { RouterLink, Router } from '@angular/router';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { routerTransition } from '../router.animations';
 
 @Component({
   selector: 'app-create-enterprise',
   templateUrl: './create-enterprise.component.html',
   styleUrls: ['./create-enterprise.component.scss'],
-  providers: [CreateEntService]
+  providers: [CreateEntService],
+  animations: [routerTransition()]
 })
 export class CreateEnterpriseComponent implements OnInit {
   private isAuthentication;

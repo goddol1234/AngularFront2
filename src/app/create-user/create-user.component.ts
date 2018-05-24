@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { CreateUserService } from './create-user.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { routerTransition } from '../router.animations';
 @Component({
   selector: 'app-create-user',
   templateUrl: './create-user.component.html',
   styleUrls: ['./create-user.component.css'],
-  providers: [CreateUserService]
+  providers: [CreateUserService],
+  animations: [routerTransition()]
 })
 export class CreateUserComponent implements OnInit {
 

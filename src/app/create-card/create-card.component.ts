@@ -3,13 +3,15 @@ import { CreateCardService } from './create-card.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { DataService } from '../data.service';
 import { Router } from '@angular/router';
-
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { routerTransition } from '../router.animations';
 
 @Component({
   selector: 'app-create-card',
   templateUrl: './create-card.component.html',
   styleUrls: ['./create-card.component.css'],
-  providers: [CreateCardService, DataService]
+  providers: [CreateCardService, DataService],
+  animations: [routerTransition()]
 })
 export class CreateCardComponent implements OnInit {
 
