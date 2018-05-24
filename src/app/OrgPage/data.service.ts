@@ -46,7 +46,7 @@ export class DataService<Type> {
 
     public getSingle(ns: string, id: string): Observable<Type> {
         //console.log('GetSingle ' + ns);
-
+        console.log(this.actionUrl + ns + '/' + id + this.resolveSuffix);
         return this.http.get(this.actionUrl + ns + '/' + id + this.resolveSuffix)
         .pipe(map(this.extractData))
             .pipe(catchError(this.handleError));

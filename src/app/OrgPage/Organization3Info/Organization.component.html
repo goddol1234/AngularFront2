@@ -1,7 +1,7 @@
 <div [@routerTransition]>
     <div class="row">
         <div class="col-md-9">
-            <h1 class="participant-title" id='participantName'> 기업 리스트</h1>
+            <h1 class="participant-title" id='participantName'> 내 기관정보 관리</h1>
         </div>
         <div class="col-md-3">
         <!-- <button class="btn btn-lg btn-success" (click)="open(content)"><span style="font-size: 14px;font-family: inherit;border-right:1px solid rgba(255,255,255,0.5);padding-right:0.6em;margin-right:0.5em;vertical-align:middle;">
@@ -13,7 +13,8 @@
       </div>
    
   <div class="row">
-    
+    <div class="col-sm-12">
+      <div class="card mb-3">
 
         <div class="card-body">
           
@@ -110,10 +111,10 @@
 
           </ng-template> -->
         </div>
-        </div>
-       
-        <table style="margin-left: auto; margin-right: auto;" >
-            <thead class="thead">
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table table-responsive">
+              <thead class="thead">
                   <tr class="thead-cols">
 
 
@@ -135,20 +136,20 @@
               </tr>
               </thead>
               <tbody>
-                  <tr *ngFor="let participant of allParticipants">
+                  <tr>
   
           
-                      <td class="participant-properties">{{participant.orgId}}</td>
+                      <td class="participant-properties">{{OrgInfo.orgId}}</td>
                   
-                      <td class="participant-properties">{{participant.orgName}}</td>
+                      <td class="participant-properties">{{OrgInfo.orgName}}</td>
                   
-                      <td class="participant-properties">{{participant.address}}</td>
+                      <td class="participant-properties">{{OrgInfo.address}}</td>
                   
-                      <td class="participant-properties">{{participant.contactAdress}}</td>
+                      <td class="participant-properties">{{OrgInfo.contactAdress}}</td>
                   
-                      <td class="participant-properties">{{participant.homepage}}</td>
+                      <td class="participant-properties">{{OrgInfo.homepage}}</td>
                   
-                      <td class="participant-properties">{{participant.discription}}</td>
+                      <td class="participant-properties">{{OrgInfo.discription}}</td>
                   
                       <!-- <td class="participant-properties" *ngFor="let asset of participant.requestResumeList">
                         {{ asset.requestDetails}}
@@ -186,7 +187,12 @@
               </tbody>
             </table>
           </div>
-        
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <ng-template #del let-c="close" let-d="dismiss">
   <div id="deleteAssetModal" tabindex="-1" role="dialog" aria-labelledby="deleteAssetModalLabel">
