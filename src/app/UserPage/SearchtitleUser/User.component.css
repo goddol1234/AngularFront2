@@ -55,8 +55,8 @@ tr:nth-child(odd) #custom-table{
 
 .container3 {
     float: center;
-    width: 220%;
-    height: 200%;
+    width: 170%;
+    height: 150%;
 }
 
 
@@ -88,7 +88,7 @@ tr:nth-child(odd) #custom-table{
     
     #cv {
         width: 100%;
-        max-width: 1300px;
+        max-width: 1000px;
         background: #f3f3f3;
         /*margin: 30px auto; */
     }
@@ -167,12 +167,12 @@ tr:nth-child(odd) #custom-table{
     
     .sectionTitle {
         float: left;
-        width: 25%;
+        width: 15%;
     }
     
     .sectionContent {
         float: right;
-        width: 72.5%;
+        width: 82.5%;
     }
     
     .sectionTitle h1 {
