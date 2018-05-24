@@ -82,7 +82,8 @@ export class CreateUserComponent implements OnInit {
         console.log(issueParticipant);
         return this.createUserService.issueParticipant(issueParticipant).then((result) => {
           return this.createUserService.importCard(result, this.userId.value).then(()=>{
-            this.router.navigate(['/login']);
+            localStorage.setItem('istestin', 'true');
+            this.router.navigate(['/dashboard2']);
           });
         });
       })

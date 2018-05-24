@@ -77,7 +77,8 @@ export class CreateOrganizationComponent implements OnInit {
         return this.createOrgService.issueParticipant(issueParticipant).then((result) => {
 
           return this.createOrgService.importCard(result, this.orgName.value).then(()=>{
-            this.router.navigate(['/login']);
+            localStorage.setItem('isOrgin', 'true');
+            this.router.navigate(['/dashboard3']);
           });
         });
       })

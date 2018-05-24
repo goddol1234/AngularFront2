@@ -1,6 +1,23 @@
-<div>
-    <button type="submit" [routerLink]="['/Create-Organization']" >기관</button>
-    <button type="submit" [routerLink]="['/Create-User']" > 사용자</button>
-    <button type="submit" [routerLink]="['/Create-School']" > 학교</button>
-    <button type="submit" [routerLink]="['/Create-Enterprise']" > 기업</button>
+<div class="login-page" [@routerTransition]>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <img src="assets/images/resume.jpeg" width="150px" class="user-avatar" />
+            <h1>R`ESUME</h1>
+            <h3>카드 생성</h3>
+            <div>
+                <div>
+                    <a class="btn rounded-btn" [routerLink]="['/Create-User']" (click)="onLoggedin2()"> 유저 </a>
+                </div>
+                <div>
+                    <a class="btn rounded-btn" [routerLink]="['/Create-Organization']" (click)="onLoggedin3()"> 기관 </a>
+                </div>
+                <div>
+                    <a class="btn rounded-btn" [routerLink]="['/Create-School']" (click)="onLoggedin2()"> 학교 </a>
+                </div>
+                <div>
+                    <a class="btn rounded-btn" [routerLink]="['/Create-Enterprise']" (click)="onLoggedin2()"> 기업 </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -38,7 +38,7 @@ export class CreateEnterpriseComponent implements OnInit {
       address: this.address,
       contactAdress: this.contactAdress,
       homepage: this.homepage,
-      numberofemployees: this.numberOfemployees,
+      numberOfemployees: this.numberOfemployees,
       sales: this.sales,
       industryCategory: this.industryCategory,
       discription: this.discription,
@@ -56,7 +56,7 @@ export class CreateEnterpriseComponent implements OnInit {
       "address": this.address.value,
       "contactAdress": this.contactAdress.value,
       "homepage": this.homepage.value,
-      "numberofemployees": this.numberOfemployees.value,
+      "numberOfemployees": this.numberOfemployees.value,
       "sales": this.sales.value,
       "industryCategory": this.industryCategory.value,
       "discription" : this.discription.value,
@@ -73,7 +73,9 @@ export class CreateEnterpriseComponent implements OnInit {
       .then(() => {
         return this.createEntService.issueParticipant(issueParticipant).then((result) => {
           return this.createEntService.importCard(result, this.entName.value).then(() => {
-            this.router.navigate(['/login']);
+
+            localStorage.setItem('isEntin', 'true');
+            this.router.navigate(['/dashboard5']);
           });
         });
       })
@@ -92,7 +94,7 @@ export class CreateEnterpriseComponent implements OnInit {
       "address": null,
       "contactAdress": null,
       "homepage": null,
-      "numberofemployees": null,
+      "numberOfemployees": null,
       "sales": null,
       "industryCategory": null,
       "discription" : null,

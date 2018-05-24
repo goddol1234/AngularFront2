@@ -64,7 +64,8 @@ export class CreateSchoolComponent implements OnInit {
         return this.createSchService.issueParticipant(issueParticipant).then((result) => {
 
           return this.createSchService.importCard(result, this.schName.value).then(()=>{
-            this.router.navigate(['/login']);
+            localStorage.setItem('isSchin', 'true');
+            this.router.navigate(['/dashboard4']);
           });
         });
       })
