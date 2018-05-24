@@ -54,9 +54,13 @@ tr:nth-child(odd) #custom-table{
 }
 
 .container3 {
-    float: center;
-    width: 170%;
+    width: 230%;
     height: 150%;
+    max-height: calc(100% - 100px);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 
@@ -114,6 +118,7 @@ tr:nth-child(odd) #custom-table{
     
     #mainArea {
         padding: 0 40px;
+        background: #ededed;
     }
     
   

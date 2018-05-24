@@ -200,6 +200,7 @@ export class UserComponent implements OnInit {
         }
       });
   }
+  
 
 	/**
    * Event handler for changing the checked state of a checkbox (handles array enumeration values)
