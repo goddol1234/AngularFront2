@@ -41,6 +41,9 @@ tr:nth-child(odd) #custom-table{
 	background-color: white;
 }
 
+h1{
+	color: white;
+}
 
 .container {
     width: 200%;
