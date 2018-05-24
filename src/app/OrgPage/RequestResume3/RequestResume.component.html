@@ -14,6 +14,7 @@
 
 
 
+<div [@routerTransition]>
 
 <div class="container">
   <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
@@ -28,11 +29,13 @@
   
     </div>
   </div>
+</div>
+
   <br>
-  <div class="row">
-    <div class="col-md-12">
-      <table class="table table-responsive">
-        <thead class="thead">
+ <br>
+<br>
+        <table style="margin-left: auto; margin-right: auto;" >
+            <thead class="thead">
           <tr class="thead-cols">
 
             <th class="info">대상자ID</th>
@@ -73,6 +76,4 @@
           </tr>
         </tbody>
       </table>
-    </div>
-  </div>
 </div>

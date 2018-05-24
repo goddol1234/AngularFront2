@@ -19,7 +19,8 @@ const routes: Routes = [
             { path: 'RequestResume5', loadChildren: './RequestResume5/RequestResume.module#RequestResumeModule' },
             { path: 'Organization5', loadChildren: './Organization5/Organization.module#OrganizationModule' },
             { path: 'Enterprise5', loadChildren: './Enterprise5/Enterprise.module#EnterpriseModule' },
-            { path: 'AwardDetails5', loadChildren: './AwardDetails5/AwardDetails.module#AwardDetailsModule' }
+            { path: 'AwardDetails5', loadChildren: './AwardDetails5/AwardDetails.module#AwardDetailsModule' },
+            { path: 'Searchtitle5', loadChildren: './Searchtitle5/Search.module#SearchModule' }
 
 
 

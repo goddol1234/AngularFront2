@@ -30,6 +30,7 @@ import { routerTransition } from '../../router.animations';
 
 })
 export class CertificateComponent implements OnInit {
+  
 closeResult: string;
     open(content) {
         this.modalService.open(content).result.then((result) => {

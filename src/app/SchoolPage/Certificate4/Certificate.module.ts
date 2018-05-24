@@ -12,4 +12,6 @@ import { FormsModule , ReactiveFormsModule} from '@angular/forms'
     imports: [CommonModule, CertificateRoutingModule,FormsModule,ReactiveFormsModule],
     declarations: [CertificateComponent]
 })
-export class CertificateModule {}
+export class CertificateModule {
+    
+}
