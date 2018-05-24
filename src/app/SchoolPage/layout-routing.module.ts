@@ -19,7 +19,8 @@ const routes: Routes = [
             { path: 'RequestResume4', loadChildren: './RequestResume4/RequestResume.module#RequestResumeModule' },
             { path: 'Organization4', loadChildren: './Organization4/Organization.module#OrganizationModule' },
             { path: 'Enterprise4', loadChildren: './Enterprise4/Enterprise.module#EnterpriseModule' },
-            { path: 'AwardDetails4', loadChildren: './AwardDetails4/AwardDetails.module#AwardDetailsModule' }
+            { path: 'AwardDetails4', loadChildren: './AwardDetails4/AwardDetails.module#AwardDetailsModule' },
+            { path: 'Searchtitle4', loadChildren: './Searchtitle4/Search.module#SearchModule' }
 
 
 

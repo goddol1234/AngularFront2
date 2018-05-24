@@ -1,7 +1,7 @@
 <div [@routerTransition]>
     <div class="row">
         <div class="col-md-9">
-            <h1 class="participant-title" id='participantName'>  경력</h1>
+            <h1 class="participant-title" id='participantName'>  인증기관 리스트</h1>
         </div>
         <div class="col-md-3">
         <!-- <button class="btn btn-lg btn-success" (click)="open(content)"><span style="font-size: 14px;font-family: inherit;border-right:1px solid rgba(255,255,255,0.5);padding-right:0.6em;margin-right:0.5em;vertical-align:middle;">
@@ -11,110 +11,12 @@
         </span>이력서 추가</button> -->
         </div>
       </div>
-   
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="card mb-3">
-
-        <div class="card-body">
-          
-          
-          <!-- <ng-template #content let-c="close" let-d="dismiss">
-            <div class="modal-header">
-              <h4 class="modal-title">이력서 추가</h4>
-              <p class="modal-intro"> * 입력칸은 반드시 채워주세요</p>
-
-              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <form [formGroup]="myForm2">
-              <div class="modal-body">
-
-
-
-
-                <div class="form-group text-left">
-                  <label for="authorizedParticipantId">기업 ID*</label>
-
-                  <input formControlName="authorizedParticipantId" type="text" class="form-control">
-
-                </div>
-
-
-
-
-                <div class="form-group text-left">
-                  <label for="enterpriseName">기업 이름*</label>
-
-                  <input formControlName="enterpriseName" type="text" class="form-control">
-
-                </div>
-
-
-
-
-                <div class="form-group text-left">
-                  <label for="userPosition">직책</label>
-
-                  <input formControlName="userPosition" type="text" class="form-control">
-
-                </div>
-
-
-
-
-                <div class="form-group text-left">
-                  <label for="performingTask">수행업무*</label>
-
-                  <input formControlName="performingTask" type="text" class="form-control">
-
-                </div>
-
-
-
-
-                <div class="form-group text-left">
-                  <label for="dateOfEmployment">입사날짜 (ex.2000-01-01)</label>
-
-                  <input formControlName="dateOfEmployment" type="text" class="form-control">
-
-                </div>
-
-
-
-
-                <div class="form-group text-left">
-                  <label for="retirementDate">퇴사날짜 (ex.2000-01-01)</label>
-
-                  <input formControlName="retirementDate" type="text" class="form-control">
-
-                </div>
-
-
-
-
-                <div class="form-group text-left">
-                  <label for="isPublic">공개여부</label>
-
-                  <input formControlName="isPublic" type="checkbox" class="form-control">
-
-                </div>
-
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-                <button (click)="addTransaction(myForm2);" type="submit" class="btn btn-success" data-dismiss="modal" (click)="c('Close click')">확인</button>
-              </div>
-            </form>
-
-          </ng-template> -->
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <table class="table table-responsive">
-              <thead class="thead">
+   <br>
+   <br>
+   <br>
+  
+      <table style="margin-left: auto; margin-right: auto;" >
+          <thead class="thead">
                 <tr class="thead-cols">
 
 
@@ -201,13 +103,9 @@
                 </tr>
               </tbody>
             </table>
-          </div>
-        </div>
-      </div>
+         </div>
 
-    </div>
-  </div>
-</div>
+
 
 <ng-template #del let-c="close" let-d="dismiss">
   <div id="deleteAssetModal" tabindex="-1" role="dialog" aria-labelledby="deleteAssetModalLabel">
