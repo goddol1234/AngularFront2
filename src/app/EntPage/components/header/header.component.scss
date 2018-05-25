@@ -1,8 +1,7 @@
-$topnav-background-color: rgb(118, 148, 101);
+$topnav-background-color: rgb(5, 5, 5);
 :host {
     .navbar {
-        background-image:url(/assets/images/ent.jpg);background-size: cover; 
-                .navbar-brand {
+        background-color: $topnav-background-color;        .navbar-brand {
             color: #fff;
         }
         .nav-item > a {

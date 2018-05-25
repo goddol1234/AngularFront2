@@ -5,7 +5,7 @@ import { HttpClient , HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class CreateEntService {
-    private baseUrl ='http://13.209.67,207:';
+    private baseUrl ='http://13.209.67.207:';
     private adminUrl= this.baseUrl + '3001/api/';
     private multiUrl= this.baseUrl + '3000/api/';
     constructor(private http : HttpClient){

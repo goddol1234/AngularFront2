@@ -11,7 +11,9 @@ th,td{
 	padding: 10px;
 	text-align: center;
 }
-
+h1{
+	color: white;
+}
 th{
 	background-color: #050505;
 	color: white;
