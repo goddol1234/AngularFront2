@@ -6,7 +6,7 @@ import { HttpClient , HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class CreateUserService {
     // private baseUrl = 'http://localhost:';
-    private baseUrl ='http://13.125.42.33:';
+    private baseUrl ='http://13.209.67.207:';
     private adminUrl= this.baseUrl + '3001/api/';
     private multiUrl= this.baseUrl + '3000/api/';
     constructor(private http : HttpClient){
