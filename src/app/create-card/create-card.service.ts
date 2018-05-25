@@ -7,7 +7,7 @@ import 'rxjs/Rx';
 @Injectable()
 export class CreateCardService {
     // private adminUrl ='http://localhost:';
-   private adminUrl ='http://13.125.42.33:';
+   private adminUrl ='http://13.209.67.207:';
     constructor(private dataService : DataService<JSON> ,private http : Http){
     }
     public getSystemPing(): Observable<JSON> {
