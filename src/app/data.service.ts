@@ -16,6 +16,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/observable/forkJoin'
+import { IpConfig } from './IpConfig';
 
 
 //import 'rxjs/add/operator/map';
@@ -31,7 +32,8 @@ export class DataService<Type> {
     private headers: Headers;
 
     constructor(private http: Http) {
-        this.actionUrl = 'http://13.125.42.33:3000/api/';
+	let ipConf = new IpConfig();
+        this.actionUrl = ipConf.getApiIp();
         this.headers = new Headers();
         this.headers.append('Content-Type', 'application/json');
         this.headers.append('Accept', 'application/json');
@@ -70,6 +72,8 @@ export class DataService<Type> {
         console.log('what is the updated item?', itemToUpdate);
         console.log('what is the updated item?', JSON.stringify(itemToUpdate));
         */
+        console.log('${this.actionUrl}${ns}/${id}');
+	console.log(itemToUpdate);
         return this.http.put(`${this.actionUrl}${ns}/${id}`, itemToUpdate , {withCredentials : true})
           .map(this.extractData)
           .catch(this.handleError);

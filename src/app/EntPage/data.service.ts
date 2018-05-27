@@ -16,12 +16,14 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/observable/forkJoin'
+import { IpConfig } from '../IpConfig';
 
 
 //import 'rxjs/add/operator/map';
 //import 'rxjs/add/operator/catchError';
 import { map , catchError} from 'rxjs/operators';
 import { Certificate, AwardDetails, UserInfoInEnt, UserInfoInSch, ResumeInfoUser ,Authentication} from './hansung.ac.kr.assets';
+
 
 
 @Injectable()
@@ -31,8 +33,9 @@ export class DataService<Type> {
     private headers: Headers;
 
     constructor(private http: Http) {
-        this.actionUrl = 'http://13.125.42.33:3000/api/';
-        this.headers = new Headers();
+        let ipConf = new IpConfig();
+        this.actionUrl = ipConf.getApiIp();
+	this.headers = new Headers();
         this.headers.append('Content-Type', 'application/json');
         this.headers.append('Accept', 'application/json');
     }

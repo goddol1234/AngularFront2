@@ -4,10 +4,13 @@ import { Observable } from 'rxjs/Observable';
 import { Http, Response, Headers } from '@angular/http';
 import { HttpClient , HttpHeaders } from '@angular/common/http';
 import 'rxjs/Rx';
+import { IpConfig } from '../IpConfig';
+
 @Injectable()
 export class CreateCardService {
-    // private adminUrl ='http://localhost:';
-   private adminUrl ='http://13.125.42.33:';
+
+   private  ipConf = new IpConfig();
+   private adminUrl = this.ipConf.getIp() + ":" ;
     constructor(private dataService : DataService<JSON> ,private http : Http){
     }
     public getSystemPing(): Observable<JSON> {

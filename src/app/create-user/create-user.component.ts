@@ -25,8 +25,8 @@ export class CreateUserComponent implements OnInit {
   phoneNumber = new FormControl("", Validators.required);
   email = new FormControl("", Validators.required);
   isPublic = new FormControl("", Validators.required);
-  isHuntingForJob = new FormControl("", Validators.required);
-  participantsType = new FormControl("", Validators.required);
+  isHuntingForJob = new FormControl(false, Validators.required);
+  participantsType = new FormControl(false, Validators.required);
 
   constructor(private createUserService: CreateUserService, fb: FormBuilder, public router : Router) {
     this.isAuthentication = null;
