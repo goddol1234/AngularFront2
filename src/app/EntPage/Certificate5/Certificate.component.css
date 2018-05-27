@@ -4,15 +4,16 @@ table, th ,td{
 	opacity: 0,95;
 	
 }
-
+th{
+	border:1px solid white;
+}
 th,td{
 	padding: 10px;
 	text-align: center;
 }
 
 th{
-	
-	background-color: #050505;
+	background-color: #1d1d1f;
 	color: white;
 }
 
@@ -22,7 +23,4 @@ tr:nth-child(even){
 
 tr:nth-child(odd){
 	background-color: white;
-}
-h1{
-	color: white;
 }

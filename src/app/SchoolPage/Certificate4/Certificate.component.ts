@@ -199,7 +199,20 @@ closeResult: string;
 
     });
   };
+  transferToDate(target : string): string{
 
+    if(target == null){
+      return null;
+    }
+
+
+    var targetDate = new Date(target);
+    var options = {
+      year: "numeric", month: "short", day: "numeric"
+    };
+    var result = targetDate.toLocaleDateString('ko-KR', options);
+     return result;
+  }
   authenticationExist(approvalStatus : string){
     this.isAuthentication = approvalStatus;
 
@@ -216,20 +229,7 @@ closeResult: string;
     this.loadAll();
   }
 
-  transferToDate(target : string): string{
 
-    if(target == null){
-      return null;
-    }
-
-
-    var targetDate = new Date(target);
-    var options = {
-      year: "numeric", month: "short", day: "numeric"
-    };
-    var result = targetDate.toLocaleDateString('ko-KR', options);
-     return result;
-  }
   getMyCertificateList(): Promise<any> {
     return   this.serviceCertificate.getSystemQueryCertificate("targetUserId", this.currentId)
     .toPromise()
@@ -366,10 +366,6 @@ closeResult: string;
 
 
 
-      "expirationDate": this.expirationDate.value,
-
-
-
       "isPublic": this.isPublic.value,
 
 
@@ -378,6 +374,10 @@ closeResult: string;
 
 
     };
+
+
+    if(this.expirationDate.value != null && this.expirationDate.value != "")
+	this.Transaction.expirationDate = this.expirationDate.value; 
 
 
 

@@ -199,7 +199,20 @@ closeResult: string;
 
     });
   };
+  transferToDate(target : string): string{
 
+    if(target == null){
+      return null;
+    }
+
+
+    var targetDate = new Date(target);
+    var options = {
+      year: "numeric", month: "short", day: "numeric"
+    };
+    var result = targetDate.toLocaleDateString('ko-KR', options);
+     return result;
+  }
   authenticationExist(approvalStatus : string){
     this.isAuthentication = approvalStatus;
 
@@ -270,21 +283,6 @@ closeResult: string;
 
 
 
-  transferToDate(target : string): string{
-
-    if(target == null){
-      return null;
-    }
-
-
-    var targetDate = new Date(target);
-    var options = {
-      year: "numeric", month: "short", day: "numeric"
-    };
-    var result = targetDate.toLocaleDateString('ko-KR', options);
-     return result;
-  }
-
   loadAll(): Promise<any> {
     let tempList = [];
     return this.serviceCertificate.getSystemPing()
@@ -346,41 +344,120 @@ closeResult: string;
   addTransaction(form: any): Promise<any> {
     this.Transaction = {
       $class: "hansung.ac.kr.transaction.CreateCertificate",
+
+
       "certificateName": this.certificateName.value,
+
+
+
       "certificateScore": this.certificateScore.value,
+
+
+
       "authorizedParticipantId": this.authorizedParticipantId.value,
+
+
+
       "organizationName": this.organizationName.value,
+
+
+
       "dob": this.dob.value,
-      "expirationDate": this.expirationDate.value,
+
+
+
       "isPublic": this.isPublic.value,
+
+
+
       "userId": this.userId.value,
+
+
     };
 
+
+    if(this.expirationDate.value != null && this.expirationDate.value != "")
+	this.Transaction.expirationDate = this.expirationDate.value; 
+
+
+
     this.myForm2.setValue({
+
+
       "certificateName": null,
+
+
+
       "certificateScore": null,
+
+
+
       "authorizedParticipantId": null,
+
+
+
       "organizationName": null,
+
+
+
       "dob": null,
+
+
+
       "expirationDate": null,
+
+
+
       "isPublic": false,
+
+
+
       "userId": null,
+
+
     });
-    console.log("is addTransaction called?");
+
     return this.serviceCertificate.addTransaction(this.Transaction)
       .toPromise()
       .then(() => {
+        
+        
         this.loadAll();
         this.errorMessage = null;
         this.myForm2.setValue({
+
+
           "certificateName": null,
+
+
+
           "certificateScore": null,
+
+
+
           "authorizedParticipantId": null,
+
+
+
           "organizationName": null,
+
+
+
           "dob": null,
+
+
+
           "expirationDate": null,
+
+
+
           "isPublic": false,
+
+
+
           "userId": null,
+
+
         });
       })
       .catch((error) => {
@@ -400,15 +477,61 @@ closeResult: string;
   updateAsset(form: any): Promise<any> {
     this.asset = {
       $class: "hansung.ac.kr.assets.Certificate",
+
+
+
       "ownerId": this.ownerId.value,
+
+
+
+
+
       "certificateName": this.certificateName.value,
+
+
+
+
+
       "certificateScore": this.certificateScore.value,
+
+
+
+
+
       "authorizedParticipantId": this.authorizedParticipantId.value,
+
+
+
+
+
       "organizationName": this.organizationName.value,
+
+
+
+
+
       "dob": this.dob.value,
+
+
+
+
+
       "expirationDate": this.expirationDate.value,
+
+
+
+
+
       "transactionTime": this.transactionTime.value,
+
+
+
+
+
       "isPublic": this.isPublic.value
+
+
+
     };
 
     return this.serviceCertificate.updateAsset(form.get("assetId").value, this.asset)
@@ -491,16 +614,47 @@ closeResult: string;
       .then((result) => {
         this.errorMessage = null;
         let formObject = {
+
+
           "assetId": null,
+
+
+
           "ownerId": null,
+
+
+
           "certificateName": null,
+
+
+
           "certificateScore": null,
+
+
+
           "authorizedParticipantId": null,
+
+
+
           "organizationName": null,
+
+
+
           "dob": null,
+
+
+
           "expirationDate": null,
+
+
+
           "transactionTime": null,
+
+
+
           "isPublic": false
+
+
         };
 
 
@@ -606,16 +760,47 @@ closeResult: string;
 
   resetForm(): void {
     this.myForm.setValue({
+
+
       "assetId": null,
+
+
+
       "ownerId": null,
+
+
+
       "certificateName": null,
+
+
+
       "certificateScore": null,
+
+
+
       "authorizedParticipantId": null,
+
+
+
       "organizationName": null,
+
+
+
       "dob": null,
+
+
+
       "expirationDate": null,
+
+
+
       "transactionTime": null,
+
+
+
       "isPublic": false
+
+
     });
   }
 

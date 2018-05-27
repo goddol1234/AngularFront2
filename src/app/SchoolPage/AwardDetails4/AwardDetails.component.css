@@ -2,15 +2,18 @@ table, th ,td{
 	border: 1px solid black;
 	border-collapse: collapse;
 	opacity: 0,95;
+	
 }
-
+th{
+	border:1px solid white;
+}
 th,td{
 	padding: 10px;
 	text-align: center;
 }
 
 th{
-	background-color: #413434;
+	background-color: #050505;
 	color: white;
 }
 
@@ -20,7 +23,4 @@ tr:nth-child(even){
 
 tr:nth-child(odd){
 	background-color: white;
-}
-h1{
-	color: white;
 }

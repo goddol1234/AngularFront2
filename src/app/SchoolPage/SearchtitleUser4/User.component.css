@@ -21,7 +21,6 @@
         background-color: #050505;
         color: white;
 }
-
 tr:nth-child(even) #custom-table{
 	background-color: #e8e8e8;
 }

@@ -216,7 +216,20 @@ export class UserInfoInSchComponent implements OnInit {
   ngOnInit(): void {
     this.loadAll();
   }
+  transferToDate(target : string): string{
 
+    if(target == null){
+      return null;
+    }
+
+
+    var targetDate = new Date(target);
+    var options = {
+      year: "numeric", month: "short", day: "numeric"
+    };
+    var result = targetDate.toLocaleDateString('ko-KR', options);
+     return result;
+  }
   loadAll(): Promise<any> {
     let tempList = [];
     return this.serviceUserInfoInSch.getSystemPing()
@@ -246,21 +259,6 @@ export class UserInfoInSchComponent implements OnInit {
   }
 
 
-
-  transferToDate(target : string): string{
-
-    if(target == null){
-      return null;
-    }
-
-
-    var targetDate = new Date(target);
-    var options = {
-      year: "numeric", month: "short", day: "numeric"
-    };
-    var result = targetDate.toLocaleDateString('ko-KR', options);
-     return result;
-  }
 
 
 
@@ -360,10 +358,7 @@ export class UserInfoInSchComponent implements OnInit {
       
         
           "entranceDate":this.entranceDate.value,
-        
-      
-        
-          "graduationDate":this.graduationDate.value,
+           
         
       
         
@@ -384,6 +379,13 @@ export class UserInfoInSchComponent implements OnInit {
       
       
     };
+
+    if(this.graduationDate.value != null && this.graduationDate.value != "" ) {
+     this.Transaction.graduationDate = this.graduationDate.value;
+     console.log("test : " + this.graduationDate);
+    }	
+
+    console.log(this.Transaction);
 
     this.myForm2.setValue({
       
