@@ -181,6 +181,8 @@ export class SearchComponent implements OnInit {
             tempList.push(asset);
           else if(tempList.length == 0 && asset.certificateScore == score)
             tempList.push(asset);
+            else if(cname.length == 0)
+          tempList = this.allAssets;
         });
         if(tempList.length == 0) alert("검색결과가 없습니다. 다시 입력해주세요");
         else this.allAssets = tempList;

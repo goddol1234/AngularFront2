@@ -194,7 +194,8 @@ export class OrganizationComponent implements OnInit {
       result.forEach(asset => {
         if(asset.orgName.toLowerCase() == cname)
           tempList.push(asset);
-        
+          else if(cname.length == 0)
+          tempList = this.allParticipants;
       });
       if(tempList.length == 0) alert("검색결과가 없습니다. 다시 입력해주세요");
       else this.allParticipants = tempList;

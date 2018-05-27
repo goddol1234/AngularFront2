@@ -210,7 +210,8 @@ export class UserInfoInSchComponent implements OnInit {
       result.forEach(asset => {
         if(asset.schoolName.toLowerCase() == cname)
           tempList.push(asset);
-        
+          else if(cname.length == 0)
+          tempList = this.myUserInfoInSchList;
       });
       if(tempList.length == 0) alert("검색결과가 없습니다. 다시 입력해주세요");
       else this.myUserInfoInSchList = tempList;
