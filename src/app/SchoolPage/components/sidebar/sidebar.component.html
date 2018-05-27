@@ -3,21 +3,6 @@
         <a routerLink="/dashboard4" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-dashboard"></i>&nbsp;{{ '최신 뉴스' | translate }}
         </a>
-        <!-- <a [routerLink]="['/Certificate']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;{{ '자격증 조회' | translate }}
-        </a>
-        <a [routerLink]="['/UserInfoInEnt']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;{{ '경력 조회' | translate }}
-        </a>
-        <a [routerLink]="['/UserInfoInSch']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;{{ '학력 조회' | translate }}
-        </a>
-        <a [routerLink]="['/ResumeInfoUser']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;{{ '기본이력 조회' | translate }}
-        </a>
-        <a [routerLink]="['/AwardDetails']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;{{ '수상경력 조회' | translate }}
-        </a> -->
         <a [routerLink]="['/User4']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-th-list"></i>&nbsp;&nbsp;{{ '유저 리스트' | translate }}
         </a>
@@ -27,7 +12,13 @@
         <a [routerLink]="['/Enterprise4']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-th-list"></i>&nbsp;&nbsp;{{ '기업 리스트' | translate }}
         </a>
-        <a [routerLink]="['/RequestResume4']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+
+        <a [routerLink]="['/Organization4']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-th-list"></i>&nbsp;&nbsp;{{ '인증기관 리스트' | translate }}
+        </a>
+        
+
+	<a [routerLink]="['/RequestResume4']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-th-list"></i>&nbsp;&nbsp;{{ '인증요청 리스트' | translate }}
         </a>
        
