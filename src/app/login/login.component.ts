@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { routerTransition } from '../router.animations';
-
+import { IpConfig } from '../IpConfig';
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
@@ -11,8 +11,20 @@ import { routerTransition } from '../router.animations';
 export class LoginComponent implements OnInit {
     constructor(public router: Router) {}
 
-    ngOnInit() {}
+    private authGitHub;
 
+    ngOnInit() {
+        let IpConfigObj = new IpConfig();
+	this.authGitHub = IpConfigObj.getIpAuthGitHub();
+	}
+
+    goToGitHubLogin() {
+        let IpConfigObj = new IpConfig();
+        this.authGitHub = IpConfigObj.getIpAuthGitHub();
+   
+    	return this.authGitHub;
+
+    }
     onLoggedin() {
         localStorage.setItem('isLoggedin', 'true');
     }

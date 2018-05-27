@@ -162,13 +162,23 @@ export class RequestResumeComponent implements OnInit {
   hasArrayValue(name: string, value: any): boolean {
     return this[name].value.indexOf(value) !== -1;
   }
+
+
   updateAuthentication(ownerId: string, resumeDetails:string , resumeAssetId:string , approval:string) : Promise<any> {
     
-    this.revokeRequestUser(resumeAssetId);
+    return this.revokeRequestUser(resumeAssetId)
+    .then(() => {
 
     
     this.txUpdateAuthentication = {
       $class: "hansung.ac.kr.assets.Authentication",
+
+
+
+
+	    "assetId":resumeAssetId,
+
+
     
             "ownerId":ownerId,
           
@@ -221,6 +231,7 @@ export class RequestResumeComponent implements OnInit {
     });
 
 
+	});
 
 
   }

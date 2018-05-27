@@ -281,10 +281,6 @@ export class ResumeInfoUserComponent implements OnInit {
 
 
 
-      "salaryRequirement": this.salaryRequirement.value,
-
-
-
       "majorActivities": this.majorActivities.value,
 
 
@@ -305,6 +301,9 @@ export class ResumeInfoUserComponent implements OnInit {
 
 
     };
+
+    if(this.salaryRequirement.value != null && this.salaryRequirement.value != "")
+        this.Transaction.salaryRequirement = this.salaryRequirement.value;    
 
 
 

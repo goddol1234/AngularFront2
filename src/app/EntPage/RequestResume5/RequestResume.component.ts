@@ -164,7 +164,8 @@ export class RequestResumeComponent implements OnInit {
   }
   updateAuthentication(ownerId: string, resumeDetails:string , resumeAssetId:string , approval:string) : Promise<any> {
     
-    this.revokeRequestUser(resumeAssetId);
+    return this.revokeRequestUser(resumeAssetId)
+    .then(() => {
 
     
     this.txUpdateAuthentication = {
@@ -201,6 +202,7 @@ export class RequestResumeComponent implements OnInit {
         
     
     };
+
      return this.serviceRequestResume.updateAsset(resumeAssetId, this.txUpdateAuthentication)
 		.toPromise()
 		.then(() => {
@@ -219,8 +221,7 @@ export class RequestResumeComponent implements OnInit {
 				this.errorMessage = error;
 			}
     });
-
-
+    });
 
 
   }
@@ -230,7 +231,7 @@ export class RequestResumeComponent implements OnInit {
       $class : "hansung.ac.kr.transaction.RevokeRequestUser",
 
 
-      "targetParticipantType": "hansung.ac.kr.participants.Organization",
+      "targetParticipantType": "hansung.ac.kr.participants.Enterprise",
 
 
 
@@ -258,6 +259,7 @@ export class RequestResumeComponent implements OnInit {
         }
       });
   }
+
   transferToDate(target : string): string{
 
     if(target == null){

@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response, Headers } from '@angular/http';
 import { HttpClient , HttpHeaders } from '@angular/common/http';
+import { IpConfig } from '../IpConfig';
+
 
 @Injectable()
 export class CreateSchService {
-    // private baseUrl = 'http://localhost:';
-    private baseUrl ='http://13.209.67.207:';
+    private ipConf = new IpConfig();    
+    private baseUrl = this.ipConf.getIp() + ':';
     private adminUrl= this.baseUrl + '3001/api/';
     private multiUrl= this.baseUrl + '3000/api/';
     constructor(private http : HttpClient){

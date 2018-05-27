@@ -358,10 +358,7 @@ export class UserInfoInSchComponent implements OnInit {
       
         
           "entranceDate":this.entranceDate.value,
-        
-      
-        
-          "graduationDate":this.graduationDate.value,
+           
         
       
         
@@ -382,6 +379,13 @@ export class UserInfoInSchComponent implements OnInit {
       
       
     };
+
+    if(this.graduationDate.value != null && this.graduationDate.value != "" ) {
+     this.Transaction.graduationDate = this.graduationDate.value;
+     console.log("test : " + this.graduationDate);
+    }	
+
+    console.log(this.Transaction);
 
     this.myForm2.setValue({
       

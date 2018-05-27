@@ -1,38 +1,26 @@
 .custom-table{
-	border: 1px solid black;
-	border-collapse: collapse;
-	opacity: 0,95;
-	
-}
-.custom-table-th{
-	border: 1px solid black;
-	border-collapse: collapse;
-	opacity: 0,95;
-	
+        border: 1px solid black;
+        border-collapse: collapse;
+        opacity: 0,95;
+
 }
 .custom-table-td{
-	border: 1px solid black;
-	border-collapse: collapse;
-	opacity: 0,95;
-	
+        border: 1px solid black;
+        border-collapse: collapse;      
+        opacity: 0,95;
+        padding: 10px;
+        text-align: center;
+        background-color: white;
 }
 .custom-table-th{
-	border:1px solid white;
+        border:1px solid white;
+        padding: 10px;
+        text-align: center;
+        border-collapse: collapse;
+        opacity: 0,95;
+        background-color: #050505;
+        color: white;
 }
-.custom-table-th{
-	padding: 10px;
-	text-align: center;
-}
-.custom-table-td{
-	padding: 10px;
-	text-align: center;
-}
-
-.custom-table-th{
-	background-color: #050505;
-	color: white;
-}
-
 tr:nth-child(even) #custom-table{
 	background-color: #e8e8e8;
 }

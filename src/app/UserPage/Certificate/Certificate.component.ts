@@ -366,10 +366,6 @@ closeResult: string;
 
 
 
-      "expirationDate": this.expirationDate.value,
-
-
-
       "isPublic": this.isPublic.value,
 
 
@@ -378,6 +374,10 @@ closeResult: string;
 
 
     };
+
+
+    if(this.expirationDate.value != null && this.expirationDate.value != "")
+	this.Transaction.expirationDate = this.expirationDate.value; 
 
 
 
