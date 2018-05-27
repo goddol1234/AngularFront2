@@ -13,22 +13,23 @@
  */
 
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { SchoolService } from './School.service';
+import { FormGroup, FormArray, FormBuilder,FormControl,
+    Validators  } from '@angular/forms';
+import { UserService } from './User.service';
 import 'rxjs/add/operator/toPromise';
-import { routerTransition } from '../../router.animations';
 import { NullAstVisitor } from '@angular/compiler';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { routerTransition } from '../../router.animations';
 
 @Component({
-	selector: 'app-School',
-	templateUrl: './School.component.html',
-	styleUrls: ['./School.component.css'],
-  providers: [SchoolService],
+	selector: 'app-User',
+	templateUrl: './User.component.html',
+	styleUrls: ['./User.component.css'],
+  providers: [UserService],
   animations: [routerTransition()]
 
 })
-export class SchoolComponent implements OnInit {
+export class UserComponent implements OnInit {
   closeResult: string;
   open(content) {
       this.modalService.open(content).result.then((result) => {
@@ -37,6 +38,7 @@ export class SchoolComponent implements OnInit {
           this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
       });
   }
+
   private getDismissReason(reason: any): string {
       if (reason === ModalDismissReasons.ESC) {
           return 'by pressing ESC';
@@ -46,19 +48,25 @@ export class SchoolComponent implements OnInit {
           return  `with: ${reason}`;
       }
   }
+
   myForm: FormGroup;
 
   private allParticipants;
   private participant;
   private currentId;
-  private errorMessage;
-  private myUserInfoInSchList;
+	private errorMessage;
+
+  
       
-          schId = new FormControl("", Validators.required);
+          userId = new FormControl("", Validators.required);
         
   
       
-          schName = new FormControl("", Validators.required);
+          userName = new FormControl("", Validators.required);
+        
+  
+      
+          dob = new FormControl("", Validators.required);
         
   
       
@@ -66,29 +74,36 @@ export class SchoolComponent implements OnInit {
         
   
       
-          contactAdress = new FormControl("", Validators.required);
+          phoneNumber = new FormControl("", Validators.required);
         
   
       
-          hompage = new FormControl("", Validators.required);
+          email = new FormControl("", Validators.required);
         
   
       
-          requestResumeList = new FormControl("", Validators.required);
+          isPublic = new FormControl("", Validators.required);
+        
+  
+      
+          isHuntingForJob = new FormControl("", Validators.required);
         
   
 
 
-  constructor(  private  modalService: NgbModal,
-    private serviceSchool:SchoolService, fb: FormBuilder) {
+  constructor(private  modalService: NgbModal, private serviceUser:UserService, fb: FormBuilder) {
     this.myForm = fb.group({
     
         
-          schId:this.schId,
+          userId:this.userId,
         
     
         
-          schName:this.schName,
+          userName:this.userName,
+        
+    
+        
+          dob:this.dob,
         
     
         
@@ -96,15 +111,19 @@ export class SchoolComponent implements OnInit {
         
     
         
-          contactAdress:this.contactAdress,
+          phoneNumber:this.phoneNumber,
         
     
         
-          hompage:this.hompage,
+          email:this.email,
         
     
         
-          requestResumeList:this.requestResumeList
+          isPublic:this.isPublic,
+        
+    
+        
+          isHuntingForJob:this.isHuntingForJob
         
     
     });
@@ -112,35 +131,6 @@ export class SchoolComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadAll();
-  }
-  loadOption(cname: string): Promise<any> {
-    let tempList = [];
-    
-    cname =cname.toLowerCase();
-    //score = score.toLowerCase();
-    return this.serviceSchool.getAll()
-    .toPromise()
-    .then((result) => {
-      this.errorMessage = null;
-      result.forEach(asset => {
-        if(asset.schName.toLowerCase() == cname)
-          tempList.push(asset);
-        
-      });
-      if(tempList.length == 0) alert("검색결과가 없습니다. 다시 입력해주세요");
-      else this.allParticipants = tempList;
-    })
-    .catch((error) => {
-        if(error == 'Server error'){
-            this.errorMessage = "Could not connect to REST server. Please check your configuration details";
-        }
-        else if(error == '404 - Not Found'){
-        this.errorMessage = "404 - Could not find API route. Please check your available APIs."
-        }
-        else{
-            this.errorMessage = error;
-        }
-    });
   }
   transferToDate(target : string): string{
 
@@ -158,7 +148,7 @@ export class SchoolComponent implements OnInit {
   }
   loadAll(): Promise<any> {
     let tempList = [];
-    return this.serviceSchool.getAll()
+    return this.serviceUser.getAll()
     .toPromise()
     .then((result) => {
 			this.errorMessage = null;
@@ -207,14 +197,18 @@ export class SchoolComponent implements OnInit {
 
   addParticipant(form: any): Promise<any> {
     this.participant = {
-      $class: "hansung.ac.kr.participants.School",
+      $class: "hansung.ac.kr.participants.User",
       
         
-          "schId":this.schId.value,
+          "userId":this.userId.value,
         
       
         
-          "schName":this.schName.value,
+          "userName":this.userName.value,
+        
+      
+        
+          "dob":this.dob.value,
         
       
         
@@ -222,15 +216,19 @@ export class SchoolComponent implements OnInit {
         
       
         
-          "contactAdress":this.contactAdress.value,
+          "phoneNumber":this.phoneNumber.value,
         
       
         
-          "hompage":this.hompage.value,
+          "email":this.email.value,
         
       
         
-          "requestResumeList":this.requestResumeList.value
+          "isPublic":this.isPublic.value,
+        
+      
+        
+          "isHuntingForJob":this.isHuntingForJob.value
         
       
     };
@@ -238,11 +236,15 @@ export class SchoolComponent implements OnInit {
     this.myForm.setValue({
       
         
-          "schId":null,
+          "userId":null,
         
       
         
-          "schName":null,
+          "userName":null,
+        
+      
+        
+          "dob":null,
         
       
         
@@ -250,31 +252,39 @@ export class SchoolComponent implements OnInit {
         
       
         
-          "contactAdress":null,
+          "phoneNumber":null,
         
       
         
-          "hompage":null,
+          "email":null,
         
       
         
-          "requestResumeList":null
+          "isPublic":null,
+        
+      
+        
+          "isHuntingForJob":null
         
       
     });
 
-    return this.serviceSchool.addParticipant(this.participant)
+    return this.serviceUser.addParticipant(this.participant)
     .toPromise()
     .then(() => {
 			this.errorMessage = null;
       this.myForm.setValue({
       
         
-          "schId":null,
+          "userId":null,
         
       
         
-          "schName":null,
+          "userName":null,
+        
+      
+        
+          "dob":null,
         
       
         
@@ -282,15 +292,19 @@ export class SchoolComponent implements OnInit {
         
       
         
-          "contactAdress":null,
+          "phoneNumber":null,
         
       
         
-          "hompage":null,
+          "email":null,
         
       
         
-          "requestResumeList":null 
+          "isPublic":null,
+        
+      
+        
+          "isHuntingForJob":null 
         
       
       });
@@ -308,7 +322,7 @@ export class SchoolComponent implements OnInit {
 
    updateParticipant(form: any): Promise<any> {
     this.participant = {
-      $class: "hansung.ac.kr.participants.School",
+      $class: "hansung.ac.kr.participants.User",
       
         
           
@@ -316,7 +330,13 @@ export class SchoolComponent implements OnInit {
     
         
           
-            "schName":this.schName.value,
+            "userName":this.userName.value,
+          
+        
+    
+        
+          
+            "dob":this.dob.value,
           
         
     
@@ -328,25 +348,31 @@ export class SchoolComponent implements OnInit {
     
         
           
-            "contactAdress":this.contactAdress.value,
+            "phoneNumber":this.phoneNumber.value,
           
         
     
         
           
-            "hompage":this.hompage.value,
+            "email":this.email.value,
           
         
     
         
           
-            "requestResumeList":this.requestResumeList.value
+            "isPublic":this.isPublic.value,
+          
+        
+    
+        
+          
+            "isHuntingForJob":this.isHuntingForJob.value
           
         
     
     };
 
-    return this.serviceSchool.updateParticipant(form.get("schId").value,this.participant)
+    return this.serviceUser.updateParticipant(form.get("userId").value,this.participant)
 		.toPromise()
 		.then(() => {
 			this.errorMessage = null;
@@ -367,7 +393,7 @@ export class SchoolComponent implements OnInit {
 
   deleteParticipant(): Promise<any> {
 
-    return this.serviceSchool.deleteParticipant(this.currentId)
+    return this.serviceUser.deleteParticipant(this.currentId)
 		.toPromise()
 		.then(() => {
 			this.errorMessage = null;
@@ -391,18 +417,22 @@ export class SchoolComponent implements OnInit {
 
   getForm(id: any): Promise<any>{
 
-    return this.serviceSchool.getparticipant(id)
+    return this.serviceUser.getparticipant(id)
     .toPromise()
     .then((result) => {
 			this.errorMessage = null;
       let formObject = {
         
           
-            "schId":null,
+            "userId":null,
           
         
           
-            "schName":null,
+            "userName":null,
+          
+        
+          
+            "dob":null,
           
         
           
@@ -410,15 +440,19 @@ export class SchoolComponent implements OnInit {
           
         
           
-            "contactAdress":null,
+            "phoneNumber":null,
           
         
           
-            "hompage":null,
+            "email":null,
           
         
           
-            "requestResumeList":null 
+            "isPublic":null,
+          
+        
+          
+            "isHuntingForJob":null 
           
         
       };
@@ -426,20 +460,28 @@ export class SchoolComponent implements OnInit {
 
 
       
-        if(result.schId){
+        if(result.userId){
           
-            formObject.schId = result.schId;
+            formObject.userId = result.userId;
           
         }else{
-          formObject.schId = null;
+          formObject.userId = null;
         }
       
-        if(result.schName){
+        if(result.userName){
           
-            formObject.schName = result.schName;
+            formObject.userName = result.userName;
           
         }else{
-          formObject.schName = null;
+          formObject.userName = null;
+        }
+      
+        if(result.dob){
+          
+            formObject.dob = result.dob;
+          
+        }else{
+          formObject.dob = null;
         }
       
         if(result.address){
@@ -450,28 +492,36 @@ export class SchoolComponent implements OnInit {
           formObject.address = null;
         }
       
-        if(result.contactAdress){
+        if(result.phoneNumber){
           
-            formObject.contactAdress = result.contactAdress;
+            formObject.phoneNumber = result.phoneNumber;
           
         }else{
-          formObject.contactAdress = null;
+          formObject.phoneNumber = null;
         }
       
-        if(result.hompage){
+        if(result.email){
           
-            formObject.hompage = result.hompage;
+            formObject.email = result.email;
           
         }else{
-          formObject.hompage = null;
+          formObject.email = null;
         }
       
-        if(result.requestResumeList){
+        if(result.isPublic){
           
-            formObject.requestResumeList = result.requestResumeList;
+            formObject.isPublic = result.isPublic;
           
         }else{
-          formObject.requestResumeList = null;
+          formObject.isPublic = null;
+        }
+      
+        if(result.isHuntingForJob){
+          
+            formObject.isHuntingForJob = result.isHuntingForJob;
+          
+        }else{
+          formObject.isHuntingForJob = null;
         }
       
 
@@ -496,11 +546,15 @@ export class SchoolComponent implements OnInit {
     this.myForm.setValue({
       
         
-          "schId":null,
+          "userId":null,
         
       
         
-          "schName":null,
+          "userName":null,
+        
+      
+        
+          "dob":null,
         
       
         
@@ -508,15 +562,19 @@ export class SchoolComponent implements OnInit {
         
       
         
-          "contactAdress":null,
+          "phoneNumber":null,
         
       
         
-          "hompage":null,
+          "email":null,
         
       
         
-          "requestResumeList":null 
+          "isPublic":null,
+        
+      
+        
+          "isHuntingForJob":null 
         
       
       });

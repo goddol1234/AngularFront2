@@ -182,35 +182,7 @@ export class OrganizationComponent implements OnInit {
       this[name].value.splice(index, 1);
     }
   }
-  loadOption(cname: string): Promise<any> {
-    let tempList = [];
-    
-    cname =cname.toLowerCase();
-    //score = score.toLowerCase();
-    return this.serviceOrganization.getAll()
-    .toPromise()
-    .then((result) => {
-      this.errorMessage = null;
-      result.forEach(asset => {
-        if(asset.orgName.toLowerCase() == cname)
-          tempList.push(asset);
-        
-      });
-      if(tempList.length == 0) alert("검색결과가 없습니다. 다시 입력해주세요");
-      else this.allParticipants = tempList;
-    })
-    .catch((error) => {
-        if(error == 'Server error'){
-            this.errorMessage = "Could not connect to REST server. Please check your configuration details";
-        }
-        else if(error == '404 - Not Found'){
-        this.errorMessage = "404 - Could not find API route. Please check your available APIs."
-        }
-        else{
-            this.errorMessage = error;
-        }
-    });
-  }
+
 	/**
 	 * Checkbox helper, determining whether an enumeration value should be selected or not (for array enumeration values
    * only). This is used for checkboxes in the participant updateDialog.

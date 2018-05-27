@@ -14,21 +14,21 @@
 
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { SchoolService } from './School.service';
+import { EnterpriseService } from './Enterprise.service';
 import 'rxjs/add/operator/toPromise';
 import { routerTransition } from '../../router.animations';
 import { NullAstVisitor } from '@angular/compiler';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-	selector: 'app-School',
-	templateUrl: './School.component.html',
-	styleUrls: ['./School.component.css'],
-  providers: [SchoolService],
+	selector: 'app-Enterprise',
+	templateUrl: './Enterprise.component.html',
+	styleUrls: ['./Enterprise.component.css'],
+  providers: [EnterpriseService],
   animations: [routerTransition()]
 
 })
-export class SchoolComponent implements OnInit {
+export class EnterpriseComponent implements OnInit {
   closeResult: string;
   open(content) {
       this.modalService.open(content).result.then((result) => {
@@ -51,14 +51,15 @@ export class SchoolComponent implements OnInit {
   private allParticipants;
   private participant;
   private currentId;
-  private errorMessage;
-  private myUserInfoInSchList;
+	private errorMessage;
+
+  
       
-          schId = new FormControl("", Validators.required);
+          entId = new FormControl("", Validators.required);
         
   
       
-          schName = new FormControl("", Validators.required);
+          entName = new FormControl("", Validators.required);
         
   
       
@@ -74,21 +75,36 @@ export class SchoolComponent implements OnInit {
         
   
       
+          numberOfemployees = new FormControl("", Validators.required);
+        
+  
+      
+          sales = new FormControl("", Validators.required);
+        
+  
+      
+          industryCategory = new FormControl("", Validators.required);
+        
+  
+      
+          discription = new FormControl("", Validators.required);
+        
+  
+      
           requestResumeList = new FormControl("", Validators.required);
         
   
 
 
-  constructor(  private  modalService: NgbModal,
-    private serviceSchool:SchoolService, fb: FormBuilder) {
+  constructor(private  modalService: NgbModal,private serviceEnterprise:EnterpriseService, fb: FormBuilder) {
     this.myForm = fb.group({
     
         
-          schId:this.schId,
+          entId:this.entId,
         
     
         
-          schName:this.schName,
+          entName:this.entName,
         
     
         
@@ -104,6 +120,22 @@ export class SchoolComponent implements OnInit {
         
     
         
+          numberOfemployees:this.numberOfemployees,
+        
+    
+        
+          sales:this.sales,
+        
+    
+        
+          industryCategory:this.industryCategory,
+        
+    
+        
+          discription:this.discription,
+        
+    
+        
           requestResumeList:this.requestResumeList
         
     
@@ -113,52 +145,10 @@ export class SchoolComponent implements OnInit {
   ngOnInit(): void {
     this.loadAll();
   }
-  loadOption(cname: string): Promise<any> {
-    let tempList = [];
-    
-    cname =cname.toLowerCase();
-    //score = score.toLowerCase();
-    return this.serviceSchool.getAll()
-    .toPromise()
-    .then((result) => {
-      this.errorMessage = null;
-      result.forEach(asset => {
-        if(asset.schName.toLowerCase() == cname)
-          tempList.push(asset);
-        
-      });
-      if(tempList.length == 0) alert("검색결과가 없습니다. 다시 입력해주세요");
-      else this.allParticipants = tempList;
-    })
-    .catch((error) => {
-        if(error == 'Server error'){
-            this.errorMessage = "Could not connect to REST server. Please check your configuration details";
-        }
-        else if(error == '404 - Not Found'){
-        this.errorMessage = "404 - Could not find API route. Please check your available APIs."
-        }
-        else{
-            this.errorMessage = error;
-        }
-    });
-  }
-  transferToDate(target : string): string{
 
-    if(target == null){
-      return null;
-    }
-
-
-    var targetDate = new Date(target);
-    var options = {
-      year: "numeric", month: "short", day: "numeric"
-    };
-    var result = targetDate.toLocaleDateString('ko-KR', options);
-     return result;
-  }
   loadAll(): Promise<any> {
     let tempList = [];
-    return this.serviceSchool.getAll()
+    return this.serviceEnterprise.getAll()
     .toPromise()
     .then((result) => {
 			this.errorMessage = null;
@@ -207,14 +197,14 @@ export class SchoolComponent implements OnInit {
 
   addParticipant(form: any): Promise<any> {
     this.participant = {
-      $class: "hansung.ac.kr.participants.School",
+      $class: "hansung.ac.kr.participants.Enterprise",
       
         
-          "schId":this.schId.value,
+          "entId":this.entId.value,
         
       
         
-          "schName":this.schName.value,
+          "entName":this.entName.value,
         
       
         
@@ -230,6 +220,22 @@ export class SchoolComponent implements OnInit {
         
       
         
+          "numberOfemployees":this.numberOfemployees.value,
+        
+      
+        
+          "sales":this.sales.value,
+        
+      
+        
+          "industryCategory":this.industryCategory.value,
+        
+      
+        
+          "discription":this.discription.value,
+        
+      
+        
           "requestResumeList":this.requestResumeList.value
         
       
@@ -238,11 +244,11 @@ export class SchoolComponent implements OnInit {
     this.myForm.setValue({
       
         
-          "schId":null,
+          "entId":null,
         
       
         
-          "schName":null,
+          "entName":null,
         
       
         
@@ -255,6 +261,22 @@ export class SchoolComponent implements OnInit {
       
         
           "hompage":null,
+        
+      
+        
+          "numberOfemployees":null,
+        
+      
+        
+          "sales":null,
+        
+      
+        
+          "industryCategory":null,
+        
+      
+        
+          "discription":null,
         
       
         
@@ -263,18 +285,18 @@ export class SchoolComponent implements OnInit {
       
     });
 
-    return this.serviceSchool.addParticipant(this.participant)
+    return this.serviceEnterprise.addParticipant(this.participant)
     .toPromise()
     .then(() => {
 			this.errorMessage = null;
       this.myForm.setValue({
       
         
-          "schId":null,
+          "entId":null,
         
       
         
-          "schName":null,
+          "entName":null,
         
       
         
@@ -287,6 +309,22 @@ export class SchoolComponent implements OnInit {
       
         
           "hompage":null,
+        
+      
+        
+          "numberOfemployees":null,
+        
+      
+        
+          "sales":null,
+        
+      
+        
+          "industryCategory":null,
+        
+      
+        
+          "discription":null,
         
       
         
@@ -308,7 +346,7 @@ export class SchoolComponent implements OnInit {
 
    updateParticipant(form: any): Promise<any> {
     this.participant = {
-      $class: "hansung.ac.kr.participants.School",
+      $class: "hansung.ac.kr.participants.Enterprise",
       
         
           
@@ -316,7 +354,7 @@ export class SchoolComponent implements OnInit {
     
         
           
-            "schName":this.schName.value,
+            "entName":this.entName.value,
           
         
     
@@ -340,13 +378,37 @@ export class SchoolComponent implements OnInit {
     
         
           
+            "numberOfemployees":this.numberOfemployees.value,
+          
+        
+    
+        
+          
+            "sales":this.sales.value,
+          
+        
+    
+        
+          
+            "industryCategory":this.industryCategory.value,
+          
+        
+    
+        
+          
+            "discription":this.discription.value,
+          
+        
+    
+        
+          
             "requestResumeList":this.requestResumeList.value
           
         
     
     };
 
-    return this.serviceSchool.updateParticipant(form.get("schId").value,this.participant)
+    return this.serviceEnterprise.updateParticipant(form.get("entId").value,this.participant)
 		.toPromise()
 		.then(() => {
 			this.errorMessage = null;
@@ -363,11 +425,24 @@ export class SchoolComponent implements OnInit {
 			}
     });
   }
+  transferToDate(target : string): string{
 
+    if(target == null){
+      return null;
+    }
+
+
+    var targetDate = new Date(target);
+    var options = {
+      year: "numeric", month: "short", day: "numeric"
+    };
+    var result = targetDate.toLocaleDateString('ko-KR', options);
+     return result;
+  }
 
   deleteParticipant(): Promise<any> {
 
-    return this.serviceSchool.deleteParticipant(this.currentId)
+    return this.serviceEnterprise.deleteParticipant(this.currentId)
 		.toPromise()
 		.then(() => {
 			this.errorMessage = null;
@@ -391,18 +466,18 @@ export class SchoolComponent implements OnInit {
 
   getForm(id: any): Promise<any>{
 
-    return this.serviceSchool.getparticipant(id)
+    return this.serviceEnterprise.getparticipant(id)
     .toPromise()
     .then((result) => {
 			this.errorMessage = null;
       let formObject = {
         
           
-            "schId":null,
+            "entId":null,
           
         
           
-            "schName":null,
+            "entName":null,
           
         
           
@@ -418,6 +493,22 @@ export class SchoolComponent implements OnInit {
           
         
           
+            "numberOfemployees":null,
+          
+        
+          
+            "sales":null,
+          
+        
+          
+            "industryCategory":null,
+          
+        
+          
+            "discription":null,
+          
+        
+          
             "requestResumeList":null 
           
         
@@ -426,20 +517,20 @@ export class SchoolComponent implements OnInit {
 
 
       
-        if(result.schId){
+        if(result.entId){
           
-            formObject.schId = result.schId;
+            formObject.entId = result.entId;
           
         }else{
-          formObject.schId = null;
+          formObject.entId = null;
         }
       
-        if(result.schName){
+        if(result.entName){
           
-            formObject.schName = result.schName;
+            formObject.entName = result.entName;
           
         }else{
-          formObject.schName = null;
+          formObject.entName = null;
         }
       
         if(result.address){
@@ -464,6 +555,38 @@ export class SchoolComponent implements OnInit {
           
         }else{
           formObject.hompage = null;
+        }
+      
+        if(result.numberOfemployees){
+          
+            formObject.numberOfemployees = result.numberOfemployees;
+          
+        }else{
+          formObject.numberOfemployees = null;
+        }
+      
+        if(result.sales){
+          
+            formObject.sales = result.sales;
+          
+        }else{
+          formObject.sales = null;
+        }
+      
+        if(result.industryCategory){
+          
+            formObject.industryCategory = result.industryCategory;
+          
+        }else{
+          formObject.industryCategory = null;
+        }
+      
+        if(result.discription){
+          
+            formObject.discription = result.discription;
+          
+        }else{
+          formObject.discription = null;
         }
       
         if(result.requestResumeList){
@@ -496,11 +619,11 @@ export class SchoolComponent implements OnInit {
     this.myForm.setValue({
       
         
-          "schId":null,
+          "entId":null,
         
       
         
-          "schName":null,
+          "entName":null,
         
       
         
@@ -513,6 +636,22 @@ export class SchoolComponent implements OnInit {
       
         
           "hompage":null,
+        
+      
+        
+          "numberOfemployees":null,
+        
+      
+        
+          "sales":null,
+        
+      
+        
+          "industryCategory":null,
+        
+      
+        
+          "discription":null,
         
       
         
